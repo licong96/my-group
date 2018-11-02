@@ -1,0 +1,378 @@
+.search__input {
+  font-size: 24rpx;
+}
+
+page {
+  height: 100%;
+  font-size: 30rpx;
+}
+
+/*  搜索  */
+
+.top {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1004;
+  width: 100%;
+  background-color: #fff;
+}
+
+.top__city {
+  display: flex;
+  align-items: center;
+  padding-left: 20rpx;
+}
+
+.top__icon-city {
+  font-size: 30rpx;
+  color: #ff6714;
+}
+
+.top__city-name {
+  display: inline-block;
+  padding: 0 8rpx;
+  max-width: 130rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.icon-arrow {
+  display: inline-block;
+  font-size: 24rpx;
+  color: rgb(210, 210, 210);
+  transform: rotate(-90deg);
+}
+
+.top__search {
+  flex: 1;
+  margin: 0 -10rpx;
+}
+
+.bind-setting {
+  position: relative;
+  z-index: 3;
+  margin-left: 10rpx;
+  border: 1rpx solid #e6e6e6;
+  border-radius: 8rpx;
+  width: 120rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+}
+
+.bg0 {
+  background-color: #1671fd;
+}
+
+.bg1 {
+  background-color: #fe495b;
+}
+
+.bg2 {
+  background-color: #ff6714;
+}
+
+.bg3 {
+  background-color: #fccc20;
+}
+
+.bg4 {
+  background-color: #86e39c;
+}
+
+/* 筛选 */
+
+.screen {
+  display: flex;
+  position: relative;
+  z-index: 1005;
+  border-top: 1rpx solid rgb(230, 230, 230);
+  border-bottom: 1rpx solid rgb(230, 230, 230);
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+}
+
+.screen__list {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.screen__text {
+  padding-right: 10rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.icon-arrow {
+  display: inline-block;
+  font-size: 24rpx;
+  color: rgb(210, 210, 210);
+  transform: rotate(-90deg);
+}
+
+/* 筛选详细 */
+
+.screen-detail {
+  position: absolute;
+  top: 188rpx;
+  left: 0;
+  z-index: 1001;
+  border-top: 1rpx solid #e6e6e6;
+  width: 100%;
+  height: 600rpx;
+  background-color: #fff;
+}
+
+.screen-detail__item {
+  padding-top: 10rpx;
+  height: 600rpx;
+}
+.radio-group{
+  padding: 0 25rpx
+}
+.screen-detail__list {
+  display: block;
+  padding: 20rpx 0;
+  color: #666;
+  position: relative;
+  background-color: #fff;
+}
+
+.list-wrap{
+  height: 100%
+}
+.list-space:not(:first-of-type) {
+  margin-top: 20rpx;
+}
+
+.list {
+  display: flex;
+  padding: 20rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #e6e6e6;
+}
+
+.list__developer {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+
+.list__logo {
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 36rpx;
+}
+
+.developer-msg {
+  margin-left: 10rpx;
+}
+
+.developer-name {
+  font-size: 30rpx;
+  color: rgb(49, 49, 49);
+}
+
+.developer-time {
+  font-size: 24rpx;
+  color: rgb(193, 193, 193);
+}
+
+.developer-img {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.list__img {
+  width: 250rpx;
+  height: 198rpx;
+  position: relative;
+}
+
+.list__cout {
+  flex: 1;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.list__name {
+  font-size: 36rpx;
+  color: rgb(0, 0, 0);
+}
+
+.list__message {
+  font-size: 24rpx;
+  color: rgb(193, 193, 193);
+  padding: 9rpx 0;
+  line-height: 1;
+}
+
+.list__msg {
+  display: inline-block;
+  width: 200rpx;
+}
+
+.icon-review {
+  display: block;
+  width: 61rpx;
+  height: 53rpx;
+  position: absolute;
+  top: -11rpx;
+  left: -10rpx;
+  z-index: 100;
+  color: rgb(2250, 77, 49);
+  font-size: 90rpx;
+}
+
+.icon-more {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 38rpx;
+  color: rgb(210, 210, 210);
+}
+
+.white-board {
+  display: inline-block;
+  width: 72rpx;
+  height: 26rpx;
+  background-color: #fff;
+  transform: translate(-5px, 5px) rotate(140deg);
+  position: absolute;
+  z-index: 50;
+}
+
+.label__bg {
+  position: absolute;
+  left: -8rpx;
+  top: 6rpx;
+  display: block;
+  height: 37rpx;
+  max-width: 258rpx;
+  line-height: 37rpx;
+  font-size: 22rpx;
+  padding: 0 6rpx;
+  background: rgb(251, 128, 55);
+  color: #fff;
+  z-index: 55;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.label_shadow {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  border-color: rgb(223, 98, 24) transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+  border-width: 8rpx;
+  transform: rotate(225deg);
+  position: absolute;
+  top: 32rpx;
+  left: -6rpx;
+  z-index: 55;
+}
+
+/* radio样式修改 */
+
+/* radio未选中时样式 */
+
+radio .wx-radio-input {
+  border: none;
+  background: none;
+  z-index: -1;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: none;
+}
+
+.screen-detail__list radio {
+  box-sizing: border-box;
+  background: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.active {
+  color: #ff6714;
+}
+
+.active text {
+  color: #ff6714;
+}
+
+.screen__list-more {
+  padding: 20rpx 0;
+}
+
+.screen__list-more +.screen__list-more {
+  border-top: 1rpx solid #e6e6e6;
+}
+
+.screen__list-title {
+  margin:0 25rpx 20rpx 25rpx;
+}
+
+.screen__list-more label {
+  display: inline-block;
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: rgb(241, 241, 241);
+  color: rgb(49, 49, 49);
+  margin-right: 10rpx;
+  text-align: center;
+  position: relative;
+  border-radius: 8rpx;
+}
+
+.selected {
+  background-color: rgb(251, 128, 55) !important;
+  color: #fff !important;
+}
+
+.screen__list__btn {
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #e6e6e6;
+  margin-top: 25rpx;
+}
+
+.screen__list__btn view {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.screen__list__btn view:first-of-type{
+  border-right: 1rpx solid #e6e6e6
+}

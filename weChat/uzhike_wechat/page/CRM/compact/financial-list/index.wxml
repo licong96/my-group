@@ -1,0 +1,105 @@
+<!-- 切换 -->
+<view class="tab">
+  <text class="tab__item {{tabCut === '0' ? 'active' : ''}}" data-index="0" bindtap="bindTabCut">应收实收</text>
+  <text class="tab__item {{tabCut === '1' ? 'active' : ''}}" data-index="1" bindtap="bindTabCut">应付实付</text>
+  <text class="tab__line" style="transform: translate3d({{tabCut * 100}}%, 0, 0)"></text>
+</view>
+
+<!-- 应收实收 -->
+<view class="tab-page" hidden="{{tabCut !== '0'}}">
+  <view class="financial-wrap">
+    <scroll-view scroll-y style="height: 100%;" bindscrolltolower="projectListLower">
+      <view class="financial-list">
+        <view class="financial__item" wx:for="{{receivableData}}" wx:key="{{index}}">
+          <view class="financial__top">
+            <view class="financial__top-l">
+              <text class="financial__name">款类：</text>
+              <text class="financial__tel">佣金</text>
+              <text class="financial__date">2018/10/11</text>
+            </view>
+            <view class="financial__top-r">
+              <text class="iconfont icon-shanchu icon__more g-extend-after" data-item="item" bindtap="bindOperation"></text>
+            </view>
+          </view>
+          <view class="financial__row">
+            <view class="financial__line">
+              <view class="financial__title">应收：</view>
+              <view class="financial__desc">7000</view>
+            </view>
+            <view class="financial__line">
+              <view class="financial__title">实收：</view>
+              <view class="financial__desc">6900</view>
+            </view>
+          </view>
+          <view class="financial__row">
+            <view class="financial__line">
+              <view class="financial__title">收方：</view>
+              <view class="financial__desc">黎聪</view>
+            </view>
+            <view class="financial__line">
+              <view class="financial__title">付方：</view>
+              <view class="financial__desc">张三</view>
+            </view>
+          </view>
+          <view class="financial__row">
+            <view class="financial__line">
+              <view class="financial__title">备注：</view>
+              <view class="financial__desc text-ellipsis">已完成字符</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <empty wx:if="{{isLoading1 && !receivableData.length}}"></empty>
+    </scroll-view>
+  </view>
+</view>
+
+<!-- 应付实付 -->
+<view class="tab-page" hidden="{{tabCut !== '1'}}">
+  <!-- 列表 -->
+  <view class="financial-wrap">
+    <scroll-view scroll-y style="height: 100%;" bindscrolltolower="inquiryListLower">
+      <view class="financial-list">
+        <view class="financial__item" wx:for="{{wagesPayableData}}" wx:key="{{index}}">
+          <view class="financial__top">
+            <view class="financial__top-l">
+              <text class="financial__name">款类：</text>
+              <text class="financial__tel">佣金</text>
+              <text class="financial__date">2018/10/11</text>
+            </view>
+            <view class="financial__top-r">
+              <text class="iconfont icon-shanchu icon__more g-extend-after" data-item="item" bindtap="bindOperation"></text>
+            </view>
+          </view>
+          <view class="financial__row">
+            <view class="financial__line">
+              <view class="financial__title">应收：</view>
+              <view class="financial__desc">7000</view>
+            </view>
+            <view class="financial__line">
+              <view class="financial__title">实收：</view>
+              <view class="financial__desc">6900</view>
+            </view>
+          </view>
+          <view class="financial__row">
+            <view class="financial__line">
+              <view class="financial__title">收方：</view>
+              <view class="financial__desc">黎聪</view>
+            </view>
+            <view class="financial__line">
+              <view class="financial__title">付方：</view>
+              <view class="financial__desc">张三</view>
+            </view>
+          </view>
+          <view class="financial__row">
+            <view class="financial__line">
+              <view class="financial__title">备注：</view>
+              <view class="financial__desc text-ellipsis">已完成字符</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <empty wx:if="{{isLoading2 && !inquiryData.length}}"></empty>
+    </scroll-view>
+  </view>
+</view>

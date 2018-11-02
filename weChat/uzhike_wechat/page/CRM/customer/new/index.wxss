@@ -1,0 +1,304 @@
+.container {
+  padding-bottom: 100rpx;
+  position: relative;
+  z-index: 1;
+}
+.title {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  color: #bababa;
+  padding-left: 24rpx; 
+}
+.basic, .need, .advance {
+  padding: 0 24rpx;
+  background: #fff;
+}
+.input-item {
+  display: flex;
+  align-items: center;
+  height: 130rpx;
+  background: #fff;
+}
+.input-item + .input-item {
+  border-top: 1rpx solid rgb(230,230,230);
+}
+.input-title {
+  width: 300rpx;
+}
+.input {
+  flex: 1;
+}
+picker {
+  flex: 1;
+}
+.star {
+  font-size: 30rpx;
+  color: red;
+}
+.icon-jiantou2 {
+  color: #d2d2d2;
+  transform: rotate(180deg);
+}
+.phcolor {
+  color: #c9c9c9;
+}
+textarea {
+  width: 100%;
+  /* margin-top: 10rpx; */
+  height: 140rpx;
+}
+.input-range .input-title {
+  width: 200rpx;
+}
+.range {
+  width: 170rpx;
+  padding-left: 10rpx; 
+  background: #f5f5f5;
+  border-radius: 6rpx;
+}
+.phrange {
+  color: #c9c9c9;
+  text-align: center
+}
+.line {
+  margin: 0 20rpx;
+}
+.unit {
+  margin-left: 20rpx;
+}
+.add {
+  padding: 0 24rpx;
+}
+.add .input-title {
+  flex: 1;
+}
+.icon-tianjia {
+  font-size: 22rpx;
+  color: #dbdbdb;
+}
+.advance {
+  margin-bottom: 40rpx;
+}
+
+.body-view {
+  flex: 1;
+}
+
+.input__text {
+  flex: 1;
+  line-height: 130rpx;
+}
+
+/* 下面是黎聪写的样式 */
+
+.remark {
+  padding: 20rpx 0;
+  border-top: 1rpx solid rgb(230,230,230);
+}
+.remark__input {
+  margin-top: 20rpx;
+}
+
+/* 关联人 */
+.add.add-link {
+  margin-top: 20rpx;
+  border-top: none;
+}
+.link-wrap {
+  background-color: #fff;
+}
+.link__list {
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  width: 100%;
+  height: 130rpx;
+  border-top: 1rpx solid rgb(230,230,230);
+}
+.link__pic {
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #FA7730;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+}
+.link__pic.bg--0 {
+  background-color: #ff6714;
+}
+.link__pic.bg--1 {
+  background-color: #1671fd;
+}
+.link__pic.bg--2 {
+  background-color: #86e39c;
+}
+.link__pic.bg--3 {
+  background-color: #fccc20;
+}
+.link__pic.bg--4 {
+  background-color: #fe495b;
+}
+.link__content {
+  flex: 1;
+  padding: 0 20rpx;
+}
+.link__con-name {
+  font-size: 30rpx;
+  color: #000;
+}
+.link__con-tel {
+  margin-top: 16rpx;
+  font-size: 30rpx;
+  color: rgb(201,201,201);
+}
+/* 需求和关联人的删除是一个样式 */
+.link__close,
+.need__close {
+  position: relative;
+  height: 130rpx;
+  line-height: 130rpx;
+}
+.link__close::before,
+.need__close::before {
+  content: "";
+  position: absolute;
+  left: -20rpx;
+  right: -20rpx;
+}
+.link__icon-close,
+.need__icon-close {
+  font-size: 40rpx;
+  color: rgb(201,201,201);
+}
+
+/* 添加需求 */
+.need {
+  margin-top: 10rpx;
+}
+.need__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid rgb(230,230,230);
+  height: 80rpx;
+  font-size: 24rpx;
+}
+.need .list {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  width: 100%;
+  min-height: 130rpx;
+  background-color: #fff;
+}
+.need .list__checkbox {
+  display: block;
+  padding: 20rpx 30rpx;
+}
+.need .list + .list {
+  border-top: 1rpx solid rgb(230,230,230);
+}
+.need .list__title {
+  min-width: 320rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.need .intention .list__title,
+.need .special .list__title {
+  min-width: 220rpx;
+}
+.need .title--required {
+  position: relative;
+}
+.need .title--required::after {
+  content: "*";
+  padding-left: 8rpx;
+  font-size: 40rpx;
+  color: #ff6714;
+}
+.need .list__text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #999;
+  line-height: 130rpx;
+  overflow: hidden;
+}
+.need .list__picker--text {
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.need .list__arrow {
+  font-size: 30rpx;
+  color: rgb(210,210,210);
+  transform: rotate(180deg);
+}
+.need .special .list__text {
+  display: flex;
+  align-items: center;
+}
+.need .special__input {
+  border-radius: 8rpx;
+  max-width: 173rpx;
+  min-height: 60rpx;
+  color: #333;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: rgb(245,245,245);
+}
+.need .special__line {
+  display: inline-block;
+  margin: 0 18rpx;
+  border-radius: 3rpx;
+  width: 32rpx;
+  height: 3rpx;
+  background-color: #666;
+}
+.need .special__unit {
+  padding-left: 18rpx;
+  font-size: 30rpx;
+  color: #666;
+  white-space: nowrap;
+}
+.need .list--remark {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+  height: auto;
+}
+.need .list--remark .list__title {
+  margin: 20rpx 0;
+}
+.need .list__textarea {
+  padding: 20rpx 0;
+}
+.need .list__remark {
+  width: 100%;
+}
+
+.input.disabled {
+  background-color: #f5f5f5;  
+}
+.input__iphone-all {
+  margin-left: 10rpx;
+  border: 1px solid #FA7730;
+  border-radius: 4rpx;
+  padding: 4rpx 10rpx;
+  font-size: 24rpx;
+  color: #FA7730;
+}
+
+/* 完成按钮 */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 10rpx 36rpx;
+  width: 100%;
+  background-color: #fff;
+}

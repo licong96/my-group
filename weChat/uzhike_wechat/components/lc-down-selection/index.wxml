@@ -1,0 +1,34 @@
+<view class="screen-wrap">
+  <!-- 筛选列表 -->
+  <view class="screen">
+    <view 
+      class="screen__list {{screenIndex == index ? 'active' : ''}}" 
+      wx:for="{{screenData}}" 
+      wx:key="{{index}}" 
+      data-index="{{index}}" 
+      bindtap="bindScreenClick" 
+    >
+      <text class="screen__text">{{item.current ? item.current : item.name}}</text>
+      <text class="iconfont icon-fanhui icon-arrow"></text>
+    </view>
+  </view>
+  <!-- 展开的筛选条件 -->
+  <view class="screen-detail {{screenOpen}}">
+    <scroll-view scroll-y style="height: 100%;">
+      <view class="screen-detail__item" hidden="{{screenIndex !== index}}" wx:for="{{screenData}}" wx:key="{{index}}">
+        <radio-group class="radio-group" bindchange="bindRadioChange" data-type="{{item.type}}">
+          <label 
+            class="screen-detail__list {{list.currentIndex === index ? 'active' : ''}}" 
+            wx:for="{{item.data}}" 
+            wx:for-item="list" 
+            wx:key="{{index}}" 
+          >
+            <radio class="screen__radio" color="#ff6714" value="{{list.value}}" checked="{{list.checked}}" />{{list.label}}
+          </label>
+        </radio-group>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 遮罩 -->
+<view class="screen-shade {{screenOpen}}" bindtap="bindShade"></view>

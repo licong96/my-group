@@ -1,0 +1,100 @@
+<view class="screen">
+  <view class="screen__list {{down==1?'active':''}}" data-index="1" bindtap="bindScreenClick">
+    <text class="screen__text">楼栋</text>
+    <text class="iconfont icon-fanhui icon-arrow"></text>
+  </view>
+  <view class="screen__list {{down==2?'active':''}}" data-index="2" bindtap="bindScreenClick">
+    <text class="screen__text">单元</text>
+    <text class="iconfont icon-fanhui icon-arrow"></text>
+  </view>
+  <view class="screen__list {{down==3?'active':''}}" data-index="3" bindtap="bindScreenClick">
+    <text class="screen__text">楼层</text>
+    <text class="iconfont icon-fanhui icon-arrow"></text>
+  </view>
+</view>
+
+<!-- 展开的筛选条件 -->
+<wux-animation-group wux-class="screen-detail" in="{{screenOpen}}" class-names="wux-animate--slideInDown">
+  <scroll-view scroll-y style="height: 100%;">
+    <view class="screen-detail__item" hidden="{{screenIndex !== 1}}">
+      <radio-group class="radio-group" bindchange="bindRadioChange" data-index="{{2}}">
+        <label class="radio screen-detail__list " wx:for="{{buildingArr}}" wx:key="{{index}}">
+          <radio color="#ff6714" value="{{item.ParentID}}" checked="{{item.checked}}" />
+          <text class="{{selectArray[0]==item.ParentID?'active':''}}">{{item.DictName}}</text>
+        </label>
+      </radio-group>
+    </view>
+    <view class="screen-detail__item" hidden="{{screenIndex !== 2}}">
+      <radio-group class="radio-group" bindchange="bindRadioChange" data-index="{{3}}">
+        <label class="radio screen-detail__list " wx:for="{{unitArr}}" wx:key="{{index}}">
+          <radio color="#ff6714" value="{{item.ParentID}}" checked="{{item.checked}}" />
+          <text class="{{selectArray[1]==item.ParentID?'active':''}}">{{item.DictName}}</text>
+        </label>
+      </radio-group>
+    </view>
+    <view class="screen-detail__item" hidden="{{screenIndex !== 3}}">
+      <radio-group class="radio-group" bindchange="bindRadioChange" data-index="{{4}}">
+        <label class="radio screen-detail__list" wx:for="{{floorArr}}" wx:key="{{index}}">
+          <radio color="#ff6714" value="{{item.ParentID}}" checked="{{item.checked}}" />
+          <text class="{{selectArray[2]==item.ParentID?'active':''}}">{{item.DictName}}</text>
+        </label>
+      </radio-group>
+    </view>
+  </scroll-view>
+</wux-animation-group>
+
+<view class='list-wrap'>
+
+  <scroll-view scroll-y style="height: 100%;" bindscrolltolower="bindscrolltolower">
+    <view class='list-space'>
+      <view class='list' wx:for="{{listData}}" wx:key="index">
+        <image src='{{EstateDictByFilter.ImgUrl}}' wx:if="{{EstateDictByFilter.ImgUrl !=''}}"></image>
+        <image src='../../../../images/houseType.png' wx:else></image>
+        <view class='list__hourse'>
+          <view class='hourse__type'>
+            <view>
+              <text>房号:</text>{{item.DictName}}
+            </view>
+            <view>
+              <text>面积：</text>{{EstateDictByFilter.Square}}m²
+            </view>
+            <view>
+              <text>类型：</text>{{EstateDictByFilter.PropertyUsage}}
+            </view>
+          </view>
+          <view class='hourse__type'>
+            <view>
+              <text>朝向:</text>{{EstateDictByFilter.Direction}}
+            </view>
+            <view>
+              <text>厅室：</text>{{EstateDictByFilter.Bedroom}}室{{EstateDictByFilter.Livingroom}}厅
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="loading" hidden="{{scrollLower}}">
+      <text class="iconfont icon-jiazaizhong loading__icon"></text>
+      <text class="loading__text">加载中...</text>
+    </view>
+    <view class="empty" wx:if="{{!listData.length && loading}}">
+      <text class="iconfont icon-kong empty__icon"></text>
+      <text class="empty__desc">暂无数据</text>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="footer">
+  <button catchtap="bindreturn">
+    <text hidden="{{loading}}">上一步</text>
+  </button>
+  <button class="" loading="{{loading}}" disabled="{{disabled}}" bindtap="revise">
+    <text hidden="{{loading}}">完成</text>
+  </button>
+</view>
+<i-message id="message" />
+
+<wux-backdrop bindclick="bindBackdrop" id="wux-backdrop" />
+<i-message id="message" />
+<loading hidden="{{loading}}" />

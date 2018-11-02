@@ -1,0 +1,59 @@
+page {
+  font-size: 30rpx;
+}
+
+.list {
+  padding: 0 25rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.around {
+  justify-content: space-between;
+}
+
+.warn {
+  height: 55rpx;
+  line-height: 55rpx;
+  padding: 0 25rpx;
+  font-size: 24rpx;
+  color: rgb(193, 193, 193);
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 10rpx 36rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.radio-group{
+  width: 100%
+}
+/* radio未选中时样式 */
+
+radio .wx-radio-input {
+  border: 1rpx solid rgb(255, 103, 20);
+}
+
+.radio {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.radio +.radio{
+  border-top: 1rpx solid #f5f5f5
+}
+radio{
+  margin-right: 20rpx;
+}
+.type{
+  color: rgb(5, 5, 5)
+}
+.label{
+  font-size: 24rpx;
+  color: rgb(193, 193, 193)
+}

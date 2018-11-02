@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "添加资料",
+  "usingComponents": {
+    "loading": "/components/loading/index",
+    "i-message": "/components/message/index"
+  }
+}

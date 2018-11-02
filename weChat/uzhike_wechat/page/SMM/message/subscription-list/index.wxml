@@ -1,0 +1,16 @@
+<view class="subscription-wrap">
+  <view class="subscription__item" wx:for="{{[1, 2, 3]}}" wx:key="{{index}}">
+    <view class="subscription__left">
+      <image class="subscription__img" mode="aspectFill" src="../../../images/emp-img.jpg"></image>
+    </view>
+    <view class="subscription__right">
+      <view class="subscription__top">
+        <text class="subscription__title">知识小课堂</text>
+        <text class="subscription__time">2018/9/18 20:00</text>
+       </view>
+      <view class="subscription__content ">
+        <text class="subscription__desc text-ellipsis">如何成功的找到一个优质的客户如何成功的找到一个优质的客户如何成功的找到一个优质的客户</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,42 @@
+
+<search height="100rpx" type="number" bindquery="bindQuery" hidden="{{CustTel}}" placeholder="请输入手机号搜索"></search>
+<!-- 切换 -->
+<view class="tab">
+  <text class="tab__item {{tabCut === 0 ? 'active' : ''}}" data-index="0" bindtap="bindTabCut">接待详细</text>
+  <text class="tab__item {{tabCut === 1 ? 'active' : ''}}" data-index="1" bindtap="bindTabCut">报备详细</text>
+  <text class="tab__line" style="transform: translate3d({{tabCut * 100}}%, 0, 0)"></text>
+</view>
+
+<!-- 报备项目 -->
+<view class="tab-page" hidden="{{tabCut !== 0}}">
+  <!-- 项目列表 -->
+  <view class="list-wrap" style="top: {{CustTel ? '88rpx' : '188rpx'}}">
+    <scroll-view scroll-y style="height: 100%;">
+      <view class="list__item" wx:for="{{receptionData}}" wx:key="{{index}}">
+        <text class="list__name">{{item.EmpName}}</text>
+        <text class="list__type">{{item.ReceptionType}}</text>
+        <text class="list__date">{{item.RegDate}}</text>
+      </view>
+      <empty wx:if="{{isLoading1 && !receptionData.length && !onceHint}}" />
+      <loading class="loading" hidden="{{isLoading1}}" text="搜索中..." type="static" />
+    </scroll-view>
+  </view>
+</view>
+
+<!-- 报备列表 -->
+<view class="tab-page" hidden="{{tabCut !== 1}}">
+  <!-- 列表 -->
+  <view class="list-wrap" style="top: {{CustTel ? '88rpx' : '188rpx'}}">
+    <scroll-view scroll-y style="height: 100%;">
+      <view class="list__item" wx:for="{{inquiryData}}" wx:key="{{index}}">
+        <text class="list__name">{{item.EmpName}}</text>
+        <text class="list__type">{{item.DeptName}}</text>
+        <text class="list__date">{{item.DeclareDate}}</text>
+      </view>
+      <empty wx:if="{{isLoading2 && !inquiryData.length && !onceHint}}" />
+      <loading class="loading" hidden="{{isLoading2}}" text="搜索中..." type="static" />
+    </scroll-view>
+  </view>
+</view>
+
+<view class="hint" wx:if="{{onceHint}}">需要搜索手机号</view>

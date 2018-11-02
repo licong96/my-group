@@ -1,0 +1,39 @@
+<view class='warn'>模板管理</view>
+<view class='content'>
+  <view class='list'> 
+    <view>
+      <text class="iconfont icon-tianjia tianjia text bg1"></text>
+      <text>创建新的模板</text>
+    </view>
+    <text class="iconfont icon-arrow_left arrow_left"></text>
+  </view>
+  <view class='list' catchtap='goToDaily'> 
+    <view>
+      <text class="text bg2">日</text>
+      <text>日报</text>
+    </view>
+    <text class="iconfont icon-arrow_left arrow_left"></text>
+  </view>
+  <view class='list'> 
+    <view>
+      <text class="text bg2">周</text>
+      <text>周报</text>
+    </view>
+    <text class="iconfont icon-arrow_left arrow_left"></text>
+  </view>
+  <view class='list'> 
+    <view>
+      <text class="text bg2">月</text>
+      <text>月报</text>
+    </view>
+    <text class="iconfont icon-arrow_left arrow_left"></text>
+  </view>
+  <view class='list'> 
+    <view>
+      <text class="iconfont icon-fuwu tianjia text bg3"></text>
+      <text>项目进度</text>
+    </view>
+    <text class="iconfont icon-arrow_left arrow_left"></text>
+  </view>
+</view>
+<i-message id="message" />

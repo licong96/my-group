@@ -1,0 +1,60 @@
+<view class="nav">
+  <block wx:for="{{ParentNote}}" wx:key="{{index}}">
+    <text class="iconfont icon-jiantou2 nav__iconfont"></text> 
+    <text 
+      class="nav__item {{(index + 1) === ParentNote.length ? 'nav__item--disable': ''}}" 
+      bindtap="bindBack" 
+      data-index="{{index}}"
+    >{{item}}</text>
+  </block>
+</view>
+<view class="content">
+  <scroll-view scroll-y style="height: 100%;">
+    <view class="content__scroll">
+      <view class="content__item {{item.FlagStatus === '0' ? 'content__item--void' : ''}}" wx:if="{{itemData.length}}" wx:for="{{itemData}}" wx:key="{{index}}">
+        <view 
+          class="content__text" 
+          data-parent-no="{{item.PurviewNote}}"
+          data-purview-id="{{item.PurviewID}}" 
+          bindtouchstart="handlerStart" 
+          catchtouchmove="handlerMove" 
+          bindtouchend="handlerEnd" 
+          style="transform: translate3d({{item.offsetLeft}}rpx, 0, 0)">
+          {{item.PurviewNote}}
+          <text class="content__text-desc">{{item.ValueTypeName}}</text>
+        </view>
+        <view class="content__operation">
+          <button 
+            class="content__button content__button--orange" 
+            data-purview-id="{{item.PurviewID}}" 
+            bindtap="bindEdit"
+            >编辑</button>
+          <button 
+            hidden="{{item.FlagStatus === '1'}}"
+            class="content__button content__button--blue" 
+            data-purview-no="{{item.PurviewNo}}" 
+            data-status="1" 
+            bindtap="bindUpStatus"
+            >启用</button>
+          <button 
+            hidden="{{item.FlagStatus === '0'}}"
+            class="content__button content__button--red" 
+            data-purview-no="{{item.PurviewNo}}" 
+            data-status="0" 
+            bindtap="bindUpStatus"
+            >作废</button>
+        </view>
+      </view>
+      <view class="empty" wx:if="{{!itemData.length && loading}}">
+        <text class="iconfont icon-kong empty__icon"></text>
+        <text class="empty__desc">暂无数据</text>
+      </view> 
+    </view>
+  </scroll-view>
+</view>
+
+<view class="footer">
+  <text class="footer__new" bindtap="bindNew">新建项</text>
+</view>
+
+<i-message id="message" />

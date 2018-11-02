@@ -1,0 +1,220 @@
+<view class="head"></view>
+<view class='top'>
+  <view class='top-nav'>
+    <view catchtap='selectTab' data-index="{{0}}" class="{{SelectedIndex==0?'active':''}}">单独添加
+      <text class="{{SelectedIndex==0?'selected':''}}"></text>
+    </view>
+    <view catchtap='selectTab' data-index="{{1}}" class="{{SelectedIndex==1?'active':''}}">批量添加
+      <text class="{{SelectedIndex==1?'selected':''}}"></text>
+    </view>
+  </view>
+</view>
+<view class='list__add-single' hidden="{{SelectedIndex==1}}">
+  <view class='list-wrap'>
+    <view class='top-list'>
+      <text>楼栋前缀</text>
+      <input placeholder="例如 丁香苑" placeholder-class='placeholder' bindblur='bindNameInput' data-type="BuildingPrefixName"></input>
+    </view>
+    <view class='top-list'>
+      <text>命名规则</text>
+      <view class='nameRules'>
+        <picker bindchange="bindPickerChange" range="{{nameRules}}">
+          <view class="picker">
+            <text wx:if="{{rulesIndex==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{nameRules[rulesIndex]}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='top-list'>
+      <text>楼栋</text>
+      <view hidden="{{rulesIndex!=0}}">
+        <input placeholder='起始楼层' class='list__num' bindblur="bindArrayChange" data-type="first" type="number" value="{{huildingArray.first}}"></input>
+      </view>
+      <view hidden="{{rulesIndex!=1}}" class='building-section'>
+        <picker bindchange="bindArrayChange" range="{{BuildingNOLetArry}}" data-type="first">
+          <view class="picker">
+            <text wx:if="{{huildingArray.first==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNOLetArry[huildingArray.first]}}</text>
+          </view>
+        </picker>
+      </view>
+      
+      <view hidden="{{rulesIndex!=2}}" class='building-section'>
+        <picker bindchange="bindArrayChange" range="{{BuildingNOTGArry}}" data-type="first">
+          <view class="picker">
+            <text wx:if="{{huildingArray.first==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNOTGArry[huildingArray.first]}}</text>
+          </view>
+        </picker>
+      </view>
+
+      <view hidden="{{rulesIndex!=3}}" class='building-section'>
+        <picker bindchange="bindArrayChange" range="{{BuildingNODZArry}}" data-type="first">
+          <view class="picker">
+            <text wx:if="{{huildingArray.first==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNODZArry[huildingArray.first]}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='top-list'>
+      <text>楼栋后缀</text>
+      <input placeholder="请输入" placeholder-class='placeholder' bindblur='bindNameInput' data-type="BuildingSuffixName"></input>
+    </view>
+  </view>
+  <view class='list-wrap list-m20'>
+    <view wx:for="{{listArray}}" wx:key="index">
+      <view class='top-list'>
+        <view>
+          <view style="font-size:24rpx">单元</view>
+          <view>
+            <input placeholder='请输入单元号' type="number" value="{{item.unit}}" bindinput="bindKeyInput" data-index="{{index}}"></input>
+          </view>
+        </view>
+        <text class="iconfont icon-shanchu1 shanchu1}}" wx:if="{{listArray.length > 1}}" data-index="{{index}}" catchtap='delUnit'></text>
+      </view>
+      <view class='top-list'>
+        <text>楼层区间</text>
+        <view>
+          <input placeholder='起始楼层' class='list__num' type="number" value="{{item.floor.first}}" bindblur="bingFirstInput" data-index="{{index}}" data-type="floor"></input>
+          <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+          <input placeholder='结束楼层' class='list__num' type="number" value="{{item.floor.second}}" bindblur="bingSecondInput" data-index="{{index}}" data-type="floor"></input>
+        </view>
+      </view>
+      <view class='top-list'>
+        <text>房号区间</text>
+        <view>
+          <input placeholder='起始房号' class='list__num' type="number" value="{{item.room.first}}" bindblur="bingFirstInput" data-index="{{index}}" data-type="room"></input>
+          <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+          <input placeholder='结束房号' class='list__num' type="number" value="{{item.room.second}}" bindblur="bingSecondInput" data-index="{{index}}" data-type="room"></input>
+        </view>
+      </view>
+    </view>
+
+    <view class='top-list' catchtap='addUnit' data-type="listArray">
+      <text>添加单元</text>
+      <text class="iconfont icon-tianjia tianjia}}"></text>
+    </view>
+  </view>
+</view>
+
+<view class='list__add-batch' hidden="{{SelectedIndex==0}}">
+  <view class='list-wrap'>
+    <view class='top-list'>
+      <text>楼栋前缀</text>
+      <input placeholder="例如 丁香苑" placeholder-class='placeholder' bindblur='bindNameInput' data-type="BuildingPrefixName"></input>
+    </view>
+    <view class='top-list'>
+      <text>命名规则</text>
+      <view class='nameRules'>
+        <picker bindchange="bindPickerChange" range="{{nameRules}}">
+          <view class="picker">
+            <text wx:if="{{rulesIndex==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{nameRules[rulesIndex]}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='top-list'>
+      <text>楼栋区间</text>
+      <view hidden="{{rulesIndex!=0}}">
+        <input placeholder='起始楼层' class='list__num' bindblur="bindArrayChange" data-type="first" type="number" value="{{huildingArray.first}}"></input>
+        <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+        <input placeholder='结束楼层' class='list__num' bindblur="bindArrayChange"  data-type="second" type='number' value="{{huildingArray.second}}"></input>
+      </view>
+      <view hidden="{{rulesIndex!=1}}" class='building-section'>
+        <picker bindchange="bindArrayChange" range="{{BuildingNOLetArry}}" data-type="first">
+          <view class="picker">
+            <text wx:if="{{huildingArray.first==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNOLetArry[huildingArray.first]}}</text>
+          </view>
+        </picker>        
+        <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+        <picker bindchange="bindArrayChange" range="{{BuildingNOLetArry}}" data-type="second">
+          <view class="picker">
+            <text wx:if="{{huildingArray.second==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNOLetArry[huildingArray.second]}}</text>
+          </view>
+        </picker>
+      </view>
+      
+      <view hidden="{{rulesIndex!=2}}" class='building-section'>
+        <picker bindchange="bindArrayChange" range="{{BuildingNOTGArry}}" data-type="first">
+          <view class="picker">
+            <text wx:if="{{huildingArray.first==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNOTGArry[huildingArray.first]}}</text>
+          </view>
+        </picker>
+        <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+        <picker bindchange="bindArrayChange" range="{{BuildingNOTGArry}}" data-type="second">
+          <view class="picker">
+            <text wx:if="{{huildingArray.second ==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNOTGArry[huildingArray.second]}}</text>
+          </view>
+        </picker>
+      </view>
+
+      <view hidden="{{rulesIndex!=3}}" class='building-section'>
+        <picker bindchange="bindArrayChange" range="{{BuildingNODZArry}}" data-type="first">
+          <view class="picker">
+            <text wx:if="{{huildingArray.first==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNODZArry[huildingArray.first]}}</text>
+          </view>
+        </picker>
+        <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+        <picker bindchange="bindArrayChange" range="{{BuildingNODZArry}}" data-type="second">
+          <view class="picker">
+            <text wx:if="{{huildingArray.second==''}}" style="color:rgb(193,193,193)">请选择</text>
+            <text wx:else>{{BuildingNODZArry[huildingArray.second]}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='top-list'>
+      <text>楼栋后缀</text>
+      <input placeholder="请输入" placeholder-class='placeholder' bindblur='bindNameInput' data-type="BuildingSuffixName"></input>
+    </view>
+  </view>
+  <view class='list-wrap list-m20'>
+    <view wx:for="{{listArray}}" wx:key="id">
+      <view class='top-list'>
+        <view>
+          <view style="font-size:24rpx">单元</view>
+          <view>
+            <input placeholder='请输入单元号' type="number" value="{{item.unit}}" bindinput="bindKeyInput" data-index="{{index}}"></input>
+          </view>
+        </view>
+        <text class="iconfont icon-shanchu1 shanchu1}}" wx:if="{{listArray.length > 1}}" data-index="{{index}}" catchtap='delUnit'></text>
+      </view>
+      <view class='top-list'>
+        <text>楼层区间</text>
+        <view>
+          <input placeholder='起始楼层' class='list__num' type="number" value="{{item.floor.first}}" bindblur="bingFirstInput" data-index="{{index}}" data-type="floor"></input>
+          <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+          <input placeholder='结束楼层' class='list__num' type="number" value="{{item.floor.second}}" bindblur="bingSecondInput" data-index="{{index}}" data-type="floor"></input>
+        </view>
+      </view>
+      <view class='top-list'>
+        <text>房号区间</text>
+        <view>
+          <input placeholder='起始房号' class='list__num' type="number" value="{{item.room.first}}" bindblur="bingFirstInput" data-index="{{index}}" data-type="room"></input>
+          <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+          <input placeholder='结束房号' class='list__num' type="number" value="{{item.room.second}}" bindblur="bingSecondInput" data-index="{{index}}" data-type="room"></input>
+        </view>
+      </view>
+    </view>
+ 
+    <view class='top-list' catchtap='addUnit' data-type='batchListArray'>
+      <text>添加单元</text>
+      <text class="iconfont icon-tianjia tianjia}}"></text>
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <button class="btn-primery" bindtap="bindSubmit">
+    <text>下一步</text>
+  </button>
+</view>
+<i-message id="message" />

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "字典管理",
+  "usingComponents": {
+    "search": "/components/search/index",
+    "i-message": "/components/message/index",
+    "wux-animation-group": "/components/animation-group/index",
+    "wux-backdrop": "/components/backdrop/index",
+    "loading": "/components/loading/index",
+    "screen-more": "/components/screen-more/index"
+  }
+}

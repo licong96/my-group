@@ -1,0 +1,191 @@
+{
+  "pages": [
+    "page/tabBar/home/index",
+    "page/tabBar/message/index",
+    "page/tabBar/user/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "优知客",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#bababa",
+    "selectedColor": "#fb8a3e",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "page/tabBar/home/index",
+        "text": "工作台",
+        "iconPath": "images/tab/tab-0.png",
+        "selectedIconPath": "images/tab/tab-0-active.png"
+      },
+      {
+        "pagePath": "page/tabBar/message/index",
+        "text": "消息",
+        "iconPath": "images/tab/tab-1.png",
+        "selectedIconPath": "images/tab/tab-1-active.png"
+      },
+      {
+        "pagePath": "page/tabBar/user/index",
+        "text": "我的",
+        "iconPath": "images/tab/tab-2.png",
+        "selectedIconPath": "images/tab/tab-2-active.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "page/CRM/",
+      "pages": [
+        "customer/list/index",
+        "customer/new/index",
+        "customer/city/index",
+        "customer/follow-list-all/index",
+        "customer/follow/index",
+        "customer/single-tool/index",
+        "customer/follow-list/index",
+        "customer/add-link/index",
+        "customer/detail/index",
+        "inquiry/project/index",
+        "inquiry/batch/index",
+        "compact/list/index",
+        "compact/detail/index",
+        "compact/new-1/index",
+        "compact/new-2/index",
+        "compact/new-3/index",
+        "compact/new-4/index",
+        "compact/financial-add/index",
+        "compact/financial-list/index"
+      ]
+    },
+    {
+      "root": "page/PM/",
+      "pages": [
+        "project/add-Allpreview/index",
+        "project/add-dictionary/index",
+        "project/add-preview/index",
+        "project/apply-information/index",
+        "project/batch-edit/index",
+        "project/data-detail/index",
+        "project/detail/index",
+        "project/dictionary-edit/index",
+        "project/dictionary-management/index",
+        "project/list/index",
+        "project/new/index",
+        "project/new-data/index",
+        "project/partnership/index",
+        "project/search-estate/index",
+        "project/search-project-id/index",
+        "project/searchProject/index",
+        "project/upload-image/index",
+        "estate-dict/list/index",
+        "estate-dict/new/index",
+        "estate-dict/city/index",
+        "estate-dict/detail/index",
+        "estate-dict/photo/index",
+        "reception/new/index",
+        "reception/list/index",
+        "reception/follow-list-all/index",
+        "reception/follow-list/index",
+        "reception/follow/index",
+        "reception/history-reception/index",
+        "reception/history-inquiry/index",
+        "reception/inform/index"
+      ]
+    },
+    {
+      "root": "page/SMM/",
+      "pages": [
+        "dictionary/new/index",
+        "dictionary/list/index",
+        "organizational/list/index",
+        "organizational/select/index",
+        "organizational/emp-edit/index",
+        "organizational/search/index",
+        "organizational/child-1/index",
+        "organizational/child-2/index",
+        "organizational/child-3/index",
+        "organizational/child-4/index",
+        "organizational/new/index",
+        "position/list/index",
+        "position/new/index",
+        "purview-set/list/index",
+        "purview-set/item/index",
+        "purview-set/table/index",
+        "purview/list/index",
+        "purview/new/index",
+        "purview/item/index",
+        "purview/table/index",
+        "userGroup/list/index",
+        "login/organization/index",
+        "login/create/index",
+        "login/entry/index",
+        "login/create-company/index",
+        "login/create-depart/index",
+        "login/find-password/index",
+        "login/register/index",
+        "login/add-person/index",
+        "login/add-workspace/index",
+        "login/authorize/index",
+        "message/article/index",
+        "message/assistant-alert/index",
+        "message/remind/index",
+        "message/reception-alert/index",
+        "message/subscription-list/index",
+        "message/sys-alert/index"
+      ]
+    },
+    {
+      "root": "page/OA/",
+      "pages": [
+        "attendance/index/index",
+        "attendance/set-class/index",
+        "attendance/count/index",
+        "attendance/offwork/index",
+        "attendance/reapply/index",
+        "attendance/schedual/index",
+        "attendance/update-class/index",
+        "attendance/set-rule/index",
+        "attendance/add/index",
+        "attendance/set/index",
+        "attendance/map/index"
+      ]
+    },
+    {
+      "root": "page/OM/",
+      "pages": [
+        "report-form/new/index",
+        "report-form/new-type/index",
+        "report-form/new-use/index",
+        "report-form/management/index",
+        "report-form/daily/index",
+        "report-form/weekly/index",
+        "report-form/monthly/index",
+        "report-form/write-daily/index",
+        "report-form/look-daily/index",
+        "report-form/detail-weekly/index",
+        "pin-control/all-preview/index",
+        "pin-control/message-edit/index",
+        "pin-control/message-management/index"
+      ]
+    },
+    {
+      "root": "page/public/",
+      "pages": [
+        "img-cropper/index",
+        "select-dep-emp/index",
+        "search-level-stock/index"
+      ]
+    }
+  ],
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 60000,
+    "uploadFile": 60000,
+    "downloadFile": 60000
+  },
+  "debug": true
+}

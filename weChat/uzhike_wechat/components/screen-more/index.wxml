@@ -1,0 +1,29 @@
+<!--更多筛选-->
+<wux-animation-group wux-class="screen" in="{{isShow}}" class-names="wux-animate--slideInRight">
+  <view class="screen__content">
+    <view class="screen__scroll">
+      <scroll-view scroll-y style="height: 100%;">
+        <view class="screen__list" wx:for="{{screenData}}" wx:key="{{index}}">
+          <view class="screen__list-title">{{item.title}}</view>
+          <radio-group class="radio-group" bindchange="bindRadioChange" data-index="{{index}}" data-type="{{item.type}}">
+            <label 
+              class="label {{list.currentIndex === index ? 'active' : ''}}" 
+              wx:for="{{item.data}}" 
+              wx:for-item="list" 
+              wx:key="{{index}}"
+            >
+              <radio class="radio" color="#ff6714" value="{{list.value}}" checked="{{list.checked}}"/>{{list.label}}
+            </label>
+          </radio-group>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="screen__footer">
+      <text class="screen__footer-btn" bindtap="bindReset">重置</text>
+      <text class="screen__footer-btn" bindtap="bindConfirm">确定</text>
+    </view>
+  </view>
+  <view class="screen__bg-click" bindtap="hide"></view> 
+</wux-animation-group>
+
+<wux-animation-group wux-class="backdrop" in="{{isShow}}" class-names="wux-animate--fadeIn"></wux-animation-group>

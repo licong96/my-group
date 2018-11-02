@@ -1,0 +1,16 @@
+/* pages/project/apply-information/index.wxss */
+textarea{
+  background-color:#fff;
+  width:100%;
+  height:550rpx;
+  overflow-y:auto;
+  padding: 20rpx
+}
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10rpx 36rpx;
+  width: 100%;
+  background-color: #fff;
+}

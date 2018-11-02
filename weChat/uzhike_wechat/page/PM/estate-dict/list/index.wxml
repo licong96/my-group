@@ -1,0 +1,53 @@
+<!-- 搜索 -->
+<view class="top">
+  <view class="top__city" bindtap="bindOpenCity" hidden="{{!citySelector.CityName}}">
+    <text class="iconfont icon-dingwei top__icon-city"></text>
+    <text class="top__city-name text-ellipsis">{{citySelector.CityName}}</text>
+    <text class="iconfont icon-fanhui icon-arrow"></text>
+  </view>
+  <text class="bind-setting" bindtap="setLocation" hidden="{{!isLocation}}">获取位置</text>
+  <view class="top__search">
+    <search height="110rpx" bindquery="bindQuery" placeholder="搜索楼盘/地名/开发商"></search>
+  </view>
+</view>
+<!-- 列表筛选 -->
+<lc-down-selection screenData="{{downScreenData}}" isMore="{{true}}" bindchange="bindDownSelection" bindmore="bindMoreSelection"></lc-down-selection>
+<!-- 列表 -->
+<view class="list-wrap">
+  <scroll-view scroll-y style="height: 100%;" bindscrolltolower="bindscrolltolower">
+    <view class="list-space" bindtap="bindClickContain">
+      <view class="list" wx:for="{{listData}}" wx:key="{{index}}" data-estate-id="{{item.EstateID}}" bindtap="bindOpenDetail">
+        <image class="list__img" mode="aspectFit" src="{{item.src}}"></image>
+        <view class="list__cont">
+          <text class="list__name">{{item.EstateName}}</text>
+          <view class="list__info">
+            <text class="list__info-text">地址：{{item.Address}}</text>
+            <!-- <text class="list__info-text">建面：400000㎡</text> -->
+            <!-- <text class="list__info-text">类型：商铺</text> -->
+          </view>
+          <view class="list__tag-wrap" hidden="{{!item.Tag}}">
+            <text class="list__tag list__tag--1">核心商业圈</text>
+            <text class="list__tag list__tag--2">中心地段</text>
+            <text class="list__tag list__tag--3">交通便利</text>
+          </view>
+          <text class="iconfont icon-gengduo icon-more" data-estate-id="{{item.EstateID}}" catchtap="bindOpenMore"></text>
+        </view>
+      </view>
+    </view>
+    <view class="loading" hidden="{{scrollLower}}">
+      <text class="iconfont icon-jiazaizhong loading__icon"></text>
+      <text class="loading__text">加载中...</text>
+    </view>
+    <view class="empty" wx:if="{{!listData.length && loading}}">
+      <text class="iconfont icon-kong empty__icon"></text>
+      <text class="empty__desc">暂无数据</text>
+    </view>
+  </scroll-view>
+</view>
+<!-- 快速创建 -->
+<view class="footer" bindtap="bindOpenNew">快速创建</view>
+
+<!-- 更多筛选 -->
+<screen-more id="screenMore" screenData="{{screenData}}" bindreset="bindScreenReset" bindconfirm="bindScreenConfirm" />
+<i-message id="message" />
+<loading hidden="{{loading}}" />
