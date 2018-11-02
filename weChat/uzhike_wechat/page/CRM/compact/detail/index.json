@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "合同详细",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "loading": "/components/loading/index"
-  }
-}

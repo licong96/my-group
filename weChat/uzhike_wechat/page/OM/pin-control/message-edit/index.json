@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "编辑",
-  "usingComponents": {
-    "i-message": "/components/message/index"
-  }
-}

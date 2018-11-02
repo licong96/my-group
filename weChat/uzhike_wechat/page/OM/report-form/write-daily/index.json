@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "写日志",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "loading": "/components/loading/index"
-  }
-}

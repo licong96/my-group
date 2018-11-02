@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "创建模板",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "loading": "/components/loading/index"
-  }
-}

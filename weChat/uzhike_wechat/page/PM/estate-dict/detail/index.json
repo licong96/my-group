@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "楼盘字典详细",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "dropdown": "/components/dropdown/index"
-  }
-}

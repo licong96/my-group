@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "搜索项目",
-  "usingComponents": {
-    "search": "/components/search/index",
-    "loading": "/components/loading/index"
-  }
-}

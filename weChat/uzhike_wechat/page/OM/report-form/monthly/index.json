@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "日报",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "field-input": "/components/field-input/index"
-  }
-}

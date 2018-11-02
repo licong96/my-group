@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "wux-animation-group": "/components/animation-group/index",
-    "i-message": "/components/message/index",
-    "search": "/components/search/index",
-    "loading": "/components/loading/index"
-  }
-}

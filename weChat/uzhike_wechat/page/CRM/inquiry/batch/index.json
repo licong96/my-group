@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "批量操作",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "empty": "/components/empty/index",
-    "lc-modal": "/components/lc-modal/index"
-  }
-}

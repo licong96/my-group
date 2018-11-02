@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "历史报备",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "loading": "/components/loading/index",
-    "empty": "/components/empty/index"
-  }
-}

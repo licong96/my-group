@@ -1,7 +1,0 @@
-<!-- 普通选择器 -->
-<picker bindchange="bindPickerChange" value="{{rangeIndex}}" range="{{range}}" range-key="label">
-  <view class="picker-wrap {{range[rangeIndex].value ? 'active' : ''}}" style="height: {{height}}rpx">
-    <view class="picker__title {{required ? 'title--required' : ''}}">{{label}}</view>
-    <view class="picker__desc">{{range[rangeIndex].label}}</view>
-  </view>
-</picker>

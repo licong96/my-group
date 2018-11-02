@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "通知到访",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "search": "/components/search/index",
-    "empty": "/components/empty/index"
-  }
-}

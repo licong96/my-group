@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "usingComponents": {
-    "search": "/components/search/index",
-    "loading": "/components/loading/index",
-    "screen-more": "/components/screen-more/index",
-    "i-message": "/components/message/index"
-  }
-}

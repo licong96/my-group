@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "新建财务收付",
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "lc-picker": "/components/lc-picker/index",
-    "field-input": "/components/field-input/index"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "职务列表",
-  "usingComponents": {
-    "i-message": "/components/message/index"
-  }
-}

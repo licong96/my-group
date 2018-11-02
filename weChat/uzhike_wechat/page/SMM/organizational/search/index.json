@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "i-message": "/components/message/index",
-    "search": "/components/search/index"
-  }
-}

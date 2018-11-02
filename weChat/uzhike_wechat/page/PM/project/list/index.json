@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "我的项目",
-  "usingComponents": {
-    "search": "/components/search/index",
-    "loading": "/components/loading/index",
-    "i-message": "/components/message/index"
-  }
-}
