@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "创建公司",
+  "usingComponents": {
+    "i-message": "/components/message/index"
+  }
+}

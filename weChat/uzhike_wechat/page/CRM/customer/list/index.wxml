@@ -1,0 +1,165 @@
+
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <view class="top__search">
+      <search height="110rpx" bindquery="bindQuery" placeholder="搜索"></search>
+    </view>
+    <view class="top__add" bindtap="bindOpenAdd">
+      <text class="iconfont icon-tianjia"></text>
+    </view>
+  </view>
+  <!-- 列表筛选 -->
+  <lc-down-selection screenData="{{downScreenData}}" isMore="{{true}}" bindchange="bindDownSelection" bindmore="bindMoreSelection"></lc-down-selection>
+  <!-- 客户列表 -->
+  <scroll-view scroll-y class="list" bindscrolltolower="bindscrolltolower">
+    <view class="list-wrap">
+      <view class="list-item {{item.isOpenFollow ? 'open' : ''}}" wx:for="{{listData}}" wx:key="{{index}}">
+        <view class="list-baseinfo" data-CustID="{{item.CustID}}" bindtap="bindOpenDetail">
+          <view class="tag {{item.Grade ? 'tag-' + item.Grade : 'tag-D'}}">{{item.Grade}}</view>
+          <!-- 基本内容 -->
+          <view class="content">
+            <view class="row row-1" data-index="{{index}}" catchtap="bindCloseFollow">
+              <text class="name">{{item.CustName}}</text>
+              <text class="tel">{{item.Tel}}</text>
+              <text class="iconfont icon-xingbiao icon-star"></text>
+              <!-- <text class="iconfont icon-gengduo1 g-extend-after" data-item="{{item}}" bindtap="bindshowActionSheet"></text> -->
+            </view>
+            <view class="list__remark text-ellipsis">{{item.Remark}}</view>
+            <view class="row">
+              <view class="row-item">
+                <view class="title">报价</view>
+                <view class="val">
+                  {{item.NeedType === '求购' ? item.MinPrice / 10000 : item.MinPrice}}-
+                  {{item.NeedType === '求购' ? item.MaxPrice / 10000 : item.MaxPrice}}
+                  {{item.NeedType === '求购' ? '万元' : '元'}}
+                </view>
+              </view>
+              <view class="row-item">
+                <view class="title">面积</view>
+                <view class="val">{{item.MinSquare}}-{{item.MaxSquare}}m²</view>
+              </view>
+              <view class="row-item">
+                <view class="title">户型</view>
+                <view class="val">{{item.Room}}</view>
+              </view>
+            </view>
+            <view class="row">
+              <view class="row-item">
+                <view class="title">区域</view>
+                <view class="val val-1">{{item.Area}}</view>
+              </view>
+            </view>
+            <view class="row">
+              <view class="title title-1">带看次数：<span class="times">0</span></view>
+              <view class="title title-1">跟进次数：<span class="times">0</span></view>
+              <view class="title title-1">录入时间：<span class="times">{{item.TrustDate}}</span></view>
+            </view>
+            <view class="row">
+              <view class="row-item center item-extend" data-index="{{index}}" data-item="{{item}}" catchtap="bindShowFollow" >
+                <view class="icon">
+                  <text class="iconfont icon-genjin"></text>
+                </view>
+                <view class="item-title">跟进</view>
+              </view>
+              <view class="row-item center item-extend" data-tel="{{item.Tel}}" catchtap="bindPhoneCall">
+                <view class="icon">
+                  <text class="iconfont icon-bohao"></text>
+                </view>
+                <view class="item-title">拨号</view>
+              </view>
+              <view class="row-item center item-extend" data-tel="{{item.Tel}}" catchtap="bindOpenSingleTool">
+                <view class="icon">
+                  <text class="iconfont icon-daikan"></text>
+                </view>
+                <view class="item-title">明细</view>
+              </view>
+              <view class="row-item center item-extend">
+                <view class="icon">
+                  <text class="iconfont icon-richeng"></text>
+                </view>
+                <view class="item-title">加入日程</view>
+              </view>
+              <view class="row-item center item-extend" data-index="{{index}}" data-item="{{item}}" catchtap="bindBatchOperation">
+                <view class="icon">
+                  <text class="iconfont icon-piliangcaozuo"></text>
+                </view>
+                <view class="item-title">批量操作</view>
+              </view>
+            </view>
+            <!-- 添加批量操作选中角标 -->
+            <view class="list__check" hidden="{{!item.checked}}">
+              <text class="iconfont icon-queren icon-check"></text>
+            </view>
+          </view>
+        </view>
+        <!-- 跟进内容 -->
+        <view class="follow">
+          <text class="follow_close iconfont icon-guanbi" data-index="{{index}}" catchtap="bindCloseFollow"></text>
+          <!-- 展示三条跟进内容 -->
+          <view class="follow_content">
+              <view class="follow_time">{{item.followOneData.FollowDate}}</view>
+              <!-- 文字跟进 -->
+              <view class="follow_text" wx:if="{{item.followOneData.FollowContent}}">{{item.followOneData.FollowContent}}</view>
+              <!-- 图片跟进 -->
+              <view class="follow_pic" wx:if="{{item.followOneData.imageData.length}}">
+                <image 
+                  wx:for="{{item.followOneData.imageData}}" 
+                  wx:key="{{index}}"
+                  wx:for-item="img"
+                  class="follow_pic-img" 
+                  mode="widthFix" 
+                  src="{{img}}" 
+                  data-current="{{img}}"
+                  data-item="{{item.followOneData.imageData}}"
+                  bindtap="bindPreviewImage"
+                ></image>
+              </view>
+              <!-- 语音跟进 -->
+              <view 
+                class="voice"
+                style="width: {{audio.time < 15 ? '25%' : audio.time / 30 * 80 + '%'}}"
+                wx:if="{{item.followOneData.audioData.length}}"
+                wx:for="{{item.followOneData.audioData}}" 
+                wx:for-item="audio"
+                wx:for-index="audioIndex"
+                wx:key="{{audioIndex}}"
+                data-audio="{{audio}}"
+                data-index="{{index}}"
+                data-audio-index="{{audioIndex}}"
+                bindtap="bindPlayAudio"
+              >
+                <text class="voice_yuyin iconfont icon-yuyin"></text>
+                <view class="voice_play {{isPlayAudio === (index + '' + audioIndex) ? 'voice_line--play' : ''}}">
+                  <text class="voice_line"></text>
+                  <text class="voice_line"></text>
+                  <text class="voice_line"></text>
+                </view>
+                <text class="voice_text">{{audio.time}}s</text>
+              </view>
+              <loading type="static" wx:if="{{!item.followLoading && !item.followOneData.FollowContent && !item.followOneData.imageData.length && !item.followOneData.audioData.length}}"></loading>
+            <view wx:if="{{item.followLoading && !item.followOneData.FollowContent && !item.followOneData.imageData.length && !item.followOneData.audioData.length}}" class="follow_desc">暂时没有跟进内容</view>
+          </view>
+          <!-- 更多跟进按钮 -->
+          <view class="follow_more-btn">
+            <button class="btn-primery" data-item="{{item}}" catchtap="bindOpenFollowList">更多跟进</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="loading" hidden="{{scrollLower}}">
+      <text class="iconfont icon-jiazaizhong loading__icon"></text>
+      <text class="loading__text">加载中...</text>
+    </view>
+    <view class="empty" wx:if="{{!listData.length && loading}}">
+      <text class="iconfont icon-kong empty__icon"></text>
+      <text class="empty__desc">没有找到相关数据</text>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 批量操作已选浮动按钮 -->
+<view class="fixed-btn" hidden="{{!checkedData.length}}" catchtap="catchFixedBtn">+{{checkedData.length}}</view>
+<!-- 更多筛选 -->
+<screen-more id="screenMore" screenData="{{screenData}}" bindreset="bindScreenReset" bindconfirm="bindScreenConfirm" />
+

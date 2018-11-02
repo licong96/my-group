@@ -1,0 +1,93 @@
+
+<view class="container">
+  <!-- 头部 -->
+  <view class="top">
+    <view class="top__search">
+      <search height="110rpx" bindquery="bindQuery" placeholder="搜索您想找的合同"></search>
+    </view>
+    <view class="top__add" bindtap="bindOpenNew">
+      <text class="iconfont icon-tianjia top__icon-add"></text>
+    </view>
+  </view>
+  <!-- 筛选 -->
+  <lc-down-selection screenData="{{downScreenData}}" bindchange="bindDownSelection"></lc-down-selection>
+  <!-- 列表数据 -->
+  <scroll-view scroll-y class="list" bindscrolltolower="bindscrolltolower">
+    <view class="list-wrap">
+      <view class="item" wx:for="{{listData}}" wx:key="{{index}}" data-item="{{item}}" bindtap="bindOpenDetail">
+        <!-- 状态，合同号 -->
+        <view class="item__top">
+          <text class="item__top-status blue">正在进行</text>
+          <text class="item__top-mark">合同号：{{item.ContractNo}}</text>
+          <text class="item__top-date">{{item.ContractDate}}</text>
+          <text class="item__top-more iconfont icon-gengduo1"></text>
+        </view>
+        <!-- 合同信息 -->
+        <view class="item__compact">
+          <view class="compact__left">
+            <image mode="widthFix" class="compact__img" src="{{item.EmpImg}}"></image>
+          </view>
+          <view class="compact__right">
+            <view class="compact__title text-ellipsis">{{item.EstateName}} {{item.RealEstateDictName}}</view>
+            <view class="compact__wrap">
+              <view class="compact__block">
+                <view class="compact__list">
+                  <text class="compact__name">买方：</text>
+                  <text class="compact__desc">黎聪</text>
+                </view>
+                <view class="compact__list">
+                  <text class="compact__name">应收：</text>
+                  <text class="compact__desc">2000￥</text>
+                </view>
+                <view class="compact__list">
+                  <text class="compact__name">实收：</text>
+                  <text class="compact__desc">2000￥</text>
+                </view>
+              </view>
+              <view class="compact__block">
+                <view class="compact__list">
+                  <text class="compact__name">卖方：</text>
+                  <text class="compact__desc">聚仁国际</text>
+                </view>
+                <view class="compact__list">
+                  <text class="compact__name">应收：</text>
+                  <text class="compact__desc">2000￥</text>
+                </view>
+                <view class="compact__list">
+                  <text class="compact__name">实收：</text>
+                  <text class="compact__desc">2000￥</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 参与公司 -->
+        <view class="company">
+          <text class="company__name">参与公司：</text>
+          <text class="company__desc">家悦房地产</text>
+        </view>
+        <!-- 步骤 -->
+        <view class="step">
+          <scroll-view scroll-x>
+            <view class="step__wrap">
+              <view class="step__item success {{index === 2 ? 'yellow' : ''}}" wx:for="{{[1, 2, 3, 4, 5]}}" wx:key="{{index}}">
+                <view class="step__content">
+                  <text class="step__text">判单</text>
+                  <text class="step__gou iconfont icon-gou"></text>
+                </view>
+                <!-- 这里有个小箭头 -->
+                <view class="step__arrow">
+                  <text class="arrow__gray iconfont icon-arrow_left"></text>
+                  <text class="arrow__yellow iconfont icon-arrow_left"></text>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+    <loading type="static" hidden="{{loading}}" />
+  </scroll-view>
+</view>
+
+<empty wx:if="{{loading && !listData.length}}" />

@@ -1,0 +1,863 @@
+@import './mixin.scss';
+@import './layout.scss';
+@import './iconfont.scss';
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+// 图片裁切禁止滑动问题
+// body {
+//   overflow: initial !important;
+// }
+
+// 公用样式
+.max-auto {
+  position: relative;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+  height: 100%;
+}
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}
+.flex-1 {
+  flex: 1;
+}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lc {
+  // 头部
+  &.header {
+    overflow: hidden;
+    @include border-b-1px(0);
+    z-index: 11;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    text-align: center;
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 45px;
+      height: 45px;
+      color: #409EFF;
+      font-size: 20px;
+      line-height: 45px;
+    }
+    .right-btn {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      z-index: 2;
+      padding: 8px 10px;
+    }
+    .right-span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      padding: 0 15px;
+      font-size: 16px;
+      line-height: 45px;
+    }
+    .el-icon-plus {
+      font-size: 20px;
+      font-weight: bold;
+      color: #409EFF;
+    }
+    .title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      padding: 0 60px;
+      width: 100%;
+      height: 45px;
+      font-size: 16px;
+      color: #2D2F33;
+      line-height: 45px;
+      @include text-over();
+    }
+  }
+  // 搜索
+  &.b-search {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    height: 30px;
+    text-align: left;
+    background-color: #DFE4ED;
+    .el-icon-search {
+      padding: 0 6px;
+      font-size: 16px;
+      color: #5A5E66;
+    }
+    .search-input {
+      flex: 1;
+      font-size: 14px;
+      color: #5A5E66;
+      line-height: 30px;
+      background-color: transparent;
+      &:focus {
+        outline: none;
+      }
+    }
+    .el-icon-circle-close {
+      padding: 5px;
+      font-size: 20px;
+      color: #878D99;
+    }
+  }
+}
+
+
+// 重置ui样式
+// 筛选组件
+.lc-screen {
+  .datetime-box {
+    .v-modal {
+      opacity: .2;
+    }
+  }
+}
+// 筛选
+.r-screen {
+  .el-select .el-input__inner {
+    border: 0;
+    width: 100%;
+  }
+}
+
+// 楼盘列表
+.lc.building {
+  .el-dialog__body {
+    padding: 15px;
+  }
+}
+// 楼盘上传
+.addition {
+  .el-select {
+    width: 100%;
+  }
+  .el-input__inner {
+    padding: 0;
+    border: 0;
+    width: 100%;
+  }
+  .el-dialog__body {
+    padding: 10px 20px;
+  }
+  .up-wrap {
+    .el-upload {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+  } // 图片上传裁切from大小
+  .g-core-image-upload-form {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+.addition,
+.property-add {
+  .g-core-image-corp-container {
+    .btn-upload {
+      border-color: #409EFF;
+      background-color: #409EFF;
+    }
+    .g-resize-bar {
+      background-color: rgba(64, 158, 255, .5);
+    }
+    .g-resize-highlight {
+      background-color: rgba(64, 158, 255, 1);
+    }
+  }
+}
+.el-message-box {
+  width: 70%;
+}
+
+.el-message {
+  min-width: 320px;
+}
+
+.v-modal {
+  z-index: 79 !important;
+}
+
+// cascader联结选择器，客户列表用到
+.lc-section-left {
+  left: 0 !important;
+  transition: all .2s; // 加动画可以解决数据位置偏移
+}
+
+.lc-section-ren {
+  margin-top: 0 !important;
+  .el-select-dropdown__wrap {
+    max-height: 200px;
+  }
+  .popper__arrow {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+}
+
+.lc-section {
+  margin-top: 0 !important;
+  white-space: normal !important;
+  max-height: 160px;
+  box-shadow: none;
+  border: none; // transition: all .2s;
+  .popper__arrow {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+  }
+  .el-cascader-menu {
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 5px;
+    height: 160px;
+    min-width: 105px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+    .el-cascader-menu__item {
+      padding: 8px 10px; // font-size: 12px;
+    }
+  }
+}
+
+.lc {
+  // 筛选组件
+  .screen {
+    .el-input__inner {
+      text-align: center;
+      border: 0;
+      height: 45px !important;
+    }
+    .el-cascader__label {
+      text-align: center;
+    }
+  } // 圆形进度
+  .el-progress__text {
+    font-size: 10px !important;
+  } // 选中楼盘
+  .houses-list {
+    .el-radio__input {
+      display: none;
+    }
+    .el-radio__label {
+      display: block;
+      padding: 0;
+      width: 100%;
+      font-size: 16px;
+      text-decoration: none;
+      text-align: center;
+    }
+  } // 客户多选
+  .multiple {
+    .el-checkbox__label {
+      display: none;
+    }
+    .is-checked {
+      .el-checkbox__label {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+      }
+      .el-icon-success {
+        position: relative;
+        font-size: 50px;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          bottom: 2px;
+          left: 2px;
+          z-index: -1;
+          border-radius: 50%;
+          background-color: #fff;
+        }
+      }
+    }
+    .el-checkbox__input {
+      display: none;
+    }
+    .el-checkbox__inner {
+      width: 30px;
+      height: 30px;
+      &:after {
+        top: 4px;
+        left: 10px;
+        width: 8px;
+        height: 15px;
+      }
+    }
+  }
+  .screen {
+    // 另一个组件
+    // white-space: normal !important;
+    .ivu-input {
+      border: 0;
+      height: 45px;
+      padding: 0;
+      line-height: 45px;
+      text-align: center;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    .ivu-select-dropdown {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      background: transparent;
+    }
+    .ivu-cascader-menu {
+      min-width: 25%;
+      background: #fff;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+    }
+    .ivu-cascader .ivu-cascader-menu-item {
+      font-size: 13px !important;
+      padding: 7px 14px;
+    } // 320手机以内
+    @include MQ(SM) {
+      .ivu-cascader-menu {
+        min-width: 33%;
+      }
+      .ivu-cascader .ivu-select-dropdown {
+        white-space: normal;
+      }
+      .ivu-cascader-menu {
+        height: 160px;
+      }
+    }
+  }
+  // 公客池
+  .lc.transfer {
+  }
+  // 根据状态改变进度条颜色为暂缓
+  .list.status-2 {
+    .list-center {
+      .el-progress-bar__inner {
+        background: rgba(235, 158, 5, .7);
+      }
+    }
+  }
+  // 房源添加
+  &.property-add {
+    .el-select {
+      width: 100%;
+      .el-input__inner {
+        padding: 0;
+        border: 0;
+        width: 100%;
+      }
+    }
+    .house-wrap {
+      .el-input__inner {
+        padding-right: 20px;
+        text-align: center;
+      }
+    }
+    // input
+    .el-input__inner {
+      border: 0;
+      padding: 0;
+    }
+    .house-wrap {
+      @include MQ(SM) {
+        .el-input__icon {
+          margin-right: -5px;
+        }
+      }
+    }
+    .g-core-image-corp-container {
+      z-index: 2002;
+    }
+  }
+}
+
+// 报备大厅组件样式
+.reported {
+  .ivu-select {
+    flex: 1;
+  }
+  .ivu-select-single {
+    padding-left: 15px;
+    @include border-b-1px(0);
+    .ivu-select-selection {
+      border: 0;
+      box-shadow: none;
+      height: 40px;
+      line-height: 40px;
+    }
+    .ivu-select-input {
+      padding: 0;
+      font-size: 14px;
+    }
+    .ivu-select-arrow {
+      width: 25px;
+      text-align: center
+    }
+  }
+}
+
+// 接待列表
+.lc-reception,
+.lc.property-list,
+.lc.account-list {
+  .ivu-select-single .ivu-select-selection {
+    height: 45px;
+    box-shadow: none;
+    border: none;
+    .ivu-select-placeholder {
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+    }
+    .ivu-select-selected-value {
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+    }
+  }
+  .ivu-select-dropdown {
+    margin: 0;
+  }
+  .lc-sort {
+    .ivu-input {
+      padding-left: 8px;
+      padding-right: 24px;
+    }
+  }
+  .estate {
+    &.lc-sort {
+      .ivu-select-dropdown {
+        right: 0;
+        left: auto !important;
+      }
+    }
+    .ivu-select-dropdown {
+      margin: 0;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+      width: auto !important;
+      min-width: 90px;
+      background: #fff;
+    }
+    .ivu-select-item {
+      font-size: 14px !important;
+    }
+  }
+  .ivu-progress-bg {
+    background: #67C23A;
+  }
+}
+// 接待
+.dg-reception {
+  .el-dialog__header {
+    padding-top: 15px;
+  }
+  .el-dialog__body {
+    padding: 15px;
+    .el-input__inner {
+      border: 0;
+    }
+  }
+  .el-dialog__footer {
+    padding-bottom: 16px;
+  }
+  .dialog-tion {
+    .assign {
+      display: flex;
+      .el-select {
+        flex: 1;
+        @include border-b-1px(0);
+      }
+      .el-button {
+        margin-left: 10px;
+      }
+    }
+    .self {
+      display: flex;
+      padding-top: 20px;
+      .self-r {
+        @include border-l-1px(0);
+      }
+      .self-l,
+      .self-r {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+        .el-button {
+          width: 80%;
+        }
+        .desc {
+          font-size: 10px;
+          color: #909399;
+        }
+      }
+    }
+  }
+}
+// 签约
+.dg-sign {
+  .el-dialog__header {
+    padding-top: 15px;
+  }
+  .el-dialog__body {
+    padding: 15px 30px;
+  }
+  .el-dialog__footer {
+    padding-bottom: 16px;
+    .el-button {
+      width: 50%;
+    }
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    @include border-b-1px(0);
+    .serial {
+      font-size: 14px;
+      color: #909399;
+    }
+    .input-wrap {
+      flex: 1;
+      margin-left: 10px;
+      padding: 5px 0;
+      .input {
+        height: 30px;
+        width: 100%;
+        font-size: 16px;
+        &:focus {
+          border: 0;
+          outline: 0;
+        }
+      }
+    }
+  }
+  .up-img {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 0 auto;
+    border: 1px dashed #d9d9d9;
+    width: 92px;
+    height: 120px;
+    .el-icon-plus {
+      font-size: 28px;
+      color: #d9d9d9;
+    }
+    .avatar {
+      width: 100%;
+    }
+  }
+  .img-desc {
+    font-size: 14px;
+    color: #909399;
+    text-align: center;
+  }
+  .file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+// 接待-跟进
+.dg-follow-text {
+  .follow-text {
+    border-radius: 6px;
+    border-color: #d9d9d9;
+    padding: 10px;
+    width: 100%;
+    height: 80px;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: none;
+  }
+}
+.el-dialog__wrapper {
+  .el-icon-loading {
+    font-size: 22px;
+    animation: rotating 1s linear infinite
+  }
+}
+
+.ivu-cascader-transfer {
+  z-index: 3012;
+}
+
+// 图表
+.echarts-bm {
+  // width: 100%;
+  opacity: 1 !important;
+  max-width: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  .el-cascader-menu {
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    width: 26%;
+    min-width: 92px;
+    .el-cascader-menu__item {
+      padding: 8px 10px;
+      font-size: 13px;
+    }
+  }
+  @include MQ(SM) {
+    white-space: pre-wrap;
+    .el-cascader-menu {
+      width: auto;
+      height: 180px;
+    }
+  }
+}
+.lc-statistics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  .list {
+    margin: 0 8px;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+  }
+}
+
+// 房源列表
+.lc.property-list {
+  .ivu-select-selection {
+    border-radius: 0px;
+  }
+}
+// tag标签随机颜色
+.lc.tag {
+  &.color-0 {
+    background-color: rgba(242,161,47,0.15);
+    color: rgb(242,161,47);
+  }
+  &.color-1 {
+    background-color: rgba(51,190,133,0.15);
+    color: rgb(51,190,133);
+  }
+  &.color-2 {
+    background-color: rgba(103,206,103,0.15);
+    color: rgb(103,206,103);
+  }
+  &.color-3 {
+    background-color: rgba(123,189,255,0.15);
+    color: rgb(123,189,255);
+  }
+  &.color-4 {
+    background-color: rgba(255,34,85,0.15);
+    color: rgb(255,34,85);
+  }
+  &.color-5 {
+    background-color: rgba(66,185,203,0.15);
+    color: rgb(66,185,203);
+  }
+}
+
+// 销控管理
+.lc.control {
+  .add-room {
+    .el-dialog__body {
+      padding: 10px 20px;
+    }
+  }
+}
+// 对账单
+.lc.account {
+  .el-select {
+    width: 100%;
+  }
+  .el-input__inner {
+    padding: 0;
+    border: 0;
+    width: 100%;
+  }
+}
+.account-cascader {
+  .popper__arrow {
+    margin-left: 20px;
+  }
+}
+.account-dialog {
+  .el-dialog__body {
+    padding: 16px;
+  }
+}
+// 对账单列表
+.lc.account-list {
+  .ivu-select-dropdown{
+    overflow-x: hidden;
+    margin-top: -6px;
+    padding: 6px 0;
+  }
+  .ivu-select-selection {
+    border-radius: 0;
+  }
+}
+
+// 管理流程
+.lc.process {
+  .dialog-step {
+    .el-dialog__body {
+      padding: 15px 10px;
+    }
+  }
+}
+
+// 合同录入
+.lc.contract-add {
+  .el-select {
+    width: 100%;
+  }
+  .el-input__inner {
+    // padding: 0;
+    border: 0;
+    width: 100%;
+  }
+  .el-date-editor {
+    width: 100%;
+  }
+  .el-textarea__inner {
+    height: 80px;
+  }
+  .el-input.is-disabled .el-input__inner {
+    color: #333 !important;
+  }
+}
+
+.border-none {
+  .el-input__inner {
+    border: none;
+  }
+}
+// 选择部门
+.dept-name-cascader {
+  .el-cascader-menu {
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    width: 26%;
+    min-width: 92px;
+    .el-cascader-menu__item {
+      padding: 8px 10px;
+      font-size: 13px;
+    }
+  }
+  @include MQ(SM) {
+    white-space: pre-wrap;
+    .el-cascader-menu {
+      height: 180px;
+      min-width: 102px;
+    }
+  }
+}
+.el-input__inner {
+  line-height: 1;
+}
+// cascader 组件
+.el-popper[x-placement^=bottom] {
+  margin-top: 6px;
+}
+// 下拉组件三角形位置
+.popper__arrow {
+  left: 60px !important;
+}
+
+// 图片加载动画
+.loadimg[lazy=loaded] {
+  animation: loader 1s both;
+}
+@keyframes loader {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.el-message {
+  z-index: 2222 !important;
+}
+
+// 清除浮动
+.clear-float {
+  *zoom:1;
+  &:after {
+    content: "clear"; 
+    display: block;
+    height: 0; 
+    clear: both; 
+    overflow: hidden; 
+    visibility: hidden;
+  }
+}
+
+// 页面动画
+.transX-enter-active,
+.transX-leave-active,
+.transY-enter-active,
+.transY-leave-active,
+.transYT-enter-active,
+.transYT-leave-active,
+.opacity-enter-active,
+.opacity-leave-active {
+  transition: .3s all ease;
+}
+.transX-enter,
+.transX-leave-to{
+  transform: translate3d(100%, 0, 0);
+}
+.opacity-enter,
+.opacity-leave-to{
+  opacity: 0;
+}
+.transY-enter,
+.transY-leave-to{
+  transform: translate3d(0, 100%, 0);
+}
+.transYT-enter,
+.transYT-leave-to{
+  transform: translate3d(0, -100%, 0);
+}
+
+// 徐冰的登录页面修改
+.opacity-0 {
+  opacity: 0 !important;
+}
+.login-cascader-menus {
+  opacity: 0;
+}

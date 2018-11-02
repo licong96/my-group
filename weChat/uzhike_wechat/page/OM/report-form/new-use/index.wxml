@@ -1,0 +1,58 @@
+<view class='list new__name'>
+  <text class='text'>模板名称</text>
+  <view>
+    <text class='name'>年</text>
+    <text class="iconfont icon-arrow_left arrow_left"></text>
+  </view>
+</view>
+
+<view class='new__who'>
+  <view class='new__who-use'>谁可以使用模板</view>
+  <view class='add__list'>
+    <view class='who__list'>
+      <text class="iconfont icon-tianjia tianjia" catchtap='getPeople' data-index="0"></text>
+    </view>
+    <view class='who__list' wx:for="{{whoUseList}}" data-DeptID="{{item.DeptID}}" wx:key="index">
+      <image src='{{item.EmpImg}}' wx:if="{{item.EmpImg !=''}}"></image>
+      <text class="iconfont icon-touxiang touxiang" wx:else></text>
+      <text class='new_add'>{{item.EmpName}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='warn'>设置以后只有模板使用者可见，不设置则全员可见</view>
+
+<view class='send__who'>
+  <view class='new__who-use'>默认发给谁</view>
+  <view class='add__list'>
+    <view class='who__list' catchtap='getPeople' data-index="1">
+      <text class="iconfont icon-tianjia tianjia"></text>
+      <text class='new_add'>添加主管</text>
+    </view>
+    <view class='who__list' wx:for="{{sendTopList}}" data-DeptID="{{item.DeptID}}" wx:key="index">
+      <image src='{{item.EmpImg}}' wx:if="{{item.EmpImg !=''}}"></image>
+      <text class="iconfont icon-touxiang touxiang" wx:else></text>
+      <text class='new_add'>{{item.EmpName}}</text>
+    </view>
+  </view>
+  <view class='add__list' catchtap='getPeople' data-index="2">
+    <view class='who__list'>
+      <text class="iconfont icon-tianjia tianjia"></text>
+      <text class='new_add'>添加员工</text>
+    </view>
+    <view class='who__list' wx:for="{{sendBottomList}}" data-DeptID="{{item.DeptID}}" wx:key="index">
+      <image src='{{item.EmpImg}}' wx:if="{{item.EmpImg !=''}}"></image>
+      <text class="iconfont icon-touxiang touxiang" wx:else></text>
+      <text class='new_add'>{{item.EmpName}}</text>
+    </view>
+  </view>
+
+</view>
+
+<view class="footer">
+  <button class="btn-primery" bindtap="bindSubmit">
+    <text>完成</text>
+  </button>
+</view>
+
+<i-message id="message" />

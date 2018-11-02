@@ -1,0 +1,107 @@
+<view class="content">
+  <view class="list-wrap">
+
+    <view class="list">
+      <text class="list__title">当前层级</text>
+      <view class="list__content">
+        <input class="list__input" type="text" disabled value="{{ParentNote}}" />
+      </view>
+    </view>
+    <view class="list">
+      <text class="list__title">名称</text>
+      <view class="list__content">
+        <input 
+          class="list__input" 
+          type="text" 
+          disabled="{{PurviewID}}" 
+          value="{{params.PurviewName}}" 
+          data-type="PurviewName" 
+          bindinput="changeInput" 
+          placeholder="请填写名称" />
+      </view>
+    </view>
+    <view class="list">
+      <text class="list__title">索引</text>
+      <view class="list__content">
+         <input 
+          class="list__input" 
+          type="number" 
+          value="{{params.PurviewIndex}}" 
+          data-type="PurviewIndex" 
+          bindinput="changeInput" 
+          placeholder="请填写索引" /> 
+      </view>
+    </view>
+    <view class="list">
+      <text class="list__title">备注名</text>
+      <view class="list__content">
+         <input 
+          class="list__input" 
+          type="text" 
+          value="{{params.PurviewNote}}" 
+          data-type="PurviewNote" 
+          bindinput="changeInput" 
+          placeholder="请填写备注名" /> 
+      </view>
+    </view>
+    <view class="list" wx:if="{{params.LevelType !== '0'}}">
+      <text class="list__title">价值额</text>
+      <view class="list__content">
+         <input 
+          class="list__input" 
+          type="number" 
+          value="{{params.Cost}}" 
+          data-type="Cost" 
+          bindinput="changeInput"
+          placeholder="请填写价值额" /> 
+      </view>
+    </view>
+    <view class="list" wx:if="{{params.LevelType === '2'}}">
+      <text class="list__title">权限类型</text>
+      <view class="list__content">
+        <picker 
+          disabled="{{PurviewID}}"
+          mode="selector" 
+          bindchange="bindPickerChange" 
+          data-type="ValueType" 
+          value="{{pickerValueTypeIndex}}" 
+          range="{{pickerValueType}}" 
+          range-key="label"
+        >
+         <text class="list__picker">{{pickerValueType[pickerValueTypeIndex].label}}</text>
+        </picker>
+      </view>
+      <text class="iconfont icon-jiantou2 list__arrow"></text>
+    </view>
+    <view class="list" wx:if="{{params.LevelType !== '0'}}">
+      <text class="list__title">公司类型</text>
+      <view class="list__content">
+        <picker 
+          mode="selector" 
+          bindchange="bindPickerChange" 
+          data-type="NeedType" 
+          value="{{pickerNeedTypeIndex}}" 
+          range="{{pickerNeedType}}" 
+          range-key="label"
+        >
+         <text class="list__picker">{{pickerNeedType[pickerNeedTypeIndex].label}}</text>
+        </picker>
+      </view>
+      <text class="iconfont icon-jiantou2 list__arrow"></text>
+    </view>
+    <view class="list" wx:if="{{params.LevelType !== '0'}}">
+      <text class="list__title">是否显示</text>
+      <view class="list__content list__switch">
+        <switch checked="{{params.DenyOP == 1}}" color="#ff6714" bindchange="switchChange"/>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <button class="btn-primery" loading="{{loading}}" disabled="{{disabled}}" bindtap="bindSubmit">
+    <text hidden="{{loading}}">完成</text>
+  </button>
+</view>
+
+<i-message id="message" />

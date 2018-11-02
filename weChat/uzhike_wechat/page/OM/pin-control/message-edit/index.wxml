@@ -1,0 +1,88 @@
+<view class='content'>
+  <scroll-view scroll-y style="height: 100%;">
+    <view class='scroll__space' hidden="{{DictName==''}}">
+      <view class='list'>
+        <view class='list__content'>
+          <text class='list__text'>房号</text>
+          <view class='list__estate'>{{DictName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='scroll__space'>
+      <view class='list list__t20'>
+        <view class='list__content'>
+          <text class='list__text'>面积</text>
+          <view class=''>
+            <input placeholder='请输入' bindblur="bindNameChange" placeholder-style='color:rgb(201,201,201)' value="{{params.Square}}" data-type="Square"></input>
+          </view>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='list__content'>
+          <text class='list__text'>房间</text>
+          <view class=''>
+            <input placeholder='请输入' bindblur="bindNameChange" placeholder-style='color:rgb(201,201,201)' value="{{params.Bedroom}}" data-type="Bedroom"></input>
+          </view>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='list__content'>
+          <text class='list__text'>客厅</text>
+          <view class=''>
+            <input placeholder='请输入' bindblur="bindNameChange" placeholder-style='color:rgb(201,201,201)' value="{{params.Livingroom}}" data-type="Livingroom"></input>
+          </view>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='list__content'>
+          <text class='list__text'>朝向</text>
+          <picker bindchange='bindPickerChange' range='{{orientationsArray}}' data-type="Direction">
+            <view class='list__desc' wx:if="{{params.Direction==''}}">请选择</view>
+            <view class='list__desc selected' wx:else>{{params.Direction}}</view>
+          </picker>
+          <text class="iconfont icon-jiantou2 list__arrow"></text>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='list__content'>
+          <text class='list__text'>装修</text>
+          <picker bindchange='bindPickerChange' range='{{DecorationArray}}' data-type="Decoration">
+            <view class='list__desc' wx:if="{{params.Decoration==''}}">请选择</view>
+            <view class='list__desc selected' wx:else>{{params.Decoration}}</view>
+          </picker>
+          <text class="iconfont icon-jiantou2 list__arrow"></text>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='list__content'>
+          <text class='list__text'>产权类型</text>
+          <picker bindchange='bindPickerChange' range='{{PropertyUsageArray}}' data-type="PropertyUsage">
+            <view class='list__desc' wx:if="{{params.PropertyUsage==''}}">请选择</view>
+            <view class='list__desc selected' wx:else>{{params.PropertyUsage}}</view>
+          </picker>
+          <text class="iconfont icon-jiantou2 list__arrow"></text>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='list__content'>
+          <text class='list__text'>上传户型图</text>
+          <view class='imgList'>
+            <view class='imgList__image'>
+              <image src='{{params.ImgUrl}}'></image>
+              <!-- <text class="iconfont icon-guanbi guanbi}}" catchtap='DelProjectFile' data-index="{{index}}" data-project-id="{{item.ProjectFileID}}"></text> -->
+            </view>
+            <view class='add__img' catchtap='bingAddImg'>
+              <text class="iconfont icon-tianjia tianjia}}"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="footer">
+  <button class="btn-primery" loading="{{loading}}" disabled="{{disabled}}" bindtap="bindSubmit">
+    <text hidden="{{loading}}">完成</text>
+  </button>
+</view>
+<i-message id="message" />

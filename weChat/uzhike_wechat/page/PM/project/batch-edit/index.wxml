@@ -1,0 +1,44 @@
+<view wx:for="{{listData}}" wx:key="index" class='list'>
+  <view class='list-wrap'>
+    <view class='top-list'>
+      <text>{{item.title}}</text>
+      <radio-group class="radio-group" bindchange="radioChange" data-index="{{index}}">
+        <label class="radio {{i == selectedArray[index]?'active':''}}" wx:for="{{selects}}" wx:for-index="i" wx:key="i" data-index="{{selectedArray[index]}}" data-index2="{{i}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+    <view class='top-list' hidden="{{selectedArray[index]!=1 && selectedArray[index]!=0}}">
+      <text>{{item.title}}筛选</text>
+      <view>
+        <radio-group class="radio-group" bindchange="numChange" data-index="{{index}}" data-type="{{item.odd}}">
+          <label class="radio {{params[item.odd] === items.value?'active':''}}" wx:for="{{item.numberArry}}" wx:for-item="items" wx:for-index="j" wx:key="j">
+            <radio value="{{items.value}}" checked="{{items.checked}}" />{{items.label}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class='top-list' hidden="{{selectedArray[index]!=1 && selectedArray[index]!=0}}">
+      <text>{{item.title}}区间</text>
+      <view>
+        <input placeholder='起始{{item.title}}' class='list__num' bindblur='bindKeyInput' data-type='{{item.beginIndex}}' value="{{params[item.beginIndex]}}"></input>
+        <text style='color:rgb(193,193,193);padding:0 20rpx'>—</text>
+        <input placeholder='结束{{item.title}}' class='list__num' bindblur='bindKeyInput' data-type='{{item.endIndex}}' value="{{params[item.endIndex]}}"></input>
+      </view>
+    </view>
+    <view class='top-list' hidden="{{selectedArray[index]!=2 && selectedArray[index]!=0}}">
+      <text>自定义筛选</text>
+      <input placeholder="例如 1,3,5,6,7,10" placeholder-class='placeholder' bindblur='bindKeyInput' data-type="{{item.Other}}" value="{{params[item.Other]}}"></input>
+    </view>
+  </view>
+
+  <view class='remind'>未选择单元便是对整个楼盘的楼层进行筛选</view>
+</view>
+
+
+<view class="footer">
+  <button class="btn-primery" loading="{{loading}}" disabled="{{disabled}}" bindtap="bindSubmit">
+    <text hidden="{{loading}}">下一步</text>
+  </button>
+</view>
+<i-message id="message" />

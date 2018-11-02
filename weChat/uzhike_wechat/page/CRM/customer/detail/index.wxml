@@ -1,0 +1,224 @@
+<loading class="loading" type="static" wx:if="{{!loading}}" />
+
+<view class="container" hidden="{{!loading}}">
+  <!-- 客户信息 -->
+  <view class="header">
+    <view class="name">{{custData.CustName}}</view>
+    <view class="info">
+      <text>电话：{{custData.Tel}}</text>
+      <text>类型：{{custData.Grade}}</text>
+    </view>
+    <view class="funcs">
+      <view class="funcs-item" bindtap="bindOpenFollow">
+        <view class="iconfont icon-genjin"></view>
+        <view class="item-title">跟进</view>
+      </view>
+      <view class="funcs-item" bindtap="bindPhoneCall">
+        <view class="iconfont icon-bohao"></view>
+        <view class="item-title">拨号</view>
+      </view>
+      <view class="funcs-item">
+        <view class="iconfont icon-daikan"></view>
+        <view class="item-title">带看</view>
+      </view>
+      <view class="funcs-item">
+        <view class="iconfont icon-richeng"></view>
+        <view class="item-title">加入日程</view>
+      </view>
+      <view class="funcs-item">
+        <view class="iconfont icon-gengduo1"></view>
+        <view class="item-title">更多</view>
+      </view>
+    </view>
+    <view class="edit" bindtap="bindEdit">编辑</view>
+  </view>
+  <!-- 个人需求 -->
+  <view class="content">
+    <view class="item-flex need-title">
+      <view class="title">个人需求</view>
+    </view>
+    <view class="need-wrap" wx:for="{{needData}}" wx:key="{{index}}">
+      <view class="item">
+        <view class="des">类型</view>
+        <view class="val">{{item.NeedType}}</view>
+      </view>
+      <view class="item">
+        <view class="des">区域</view>
+        <view class="val">{{item.Area}}</view>
+      </view>
+      <view class="item">
+        <view class="des">产权性质</view>
+        <view class="val">{{item.PropertyType}}</view>
+      </view>
+      <view class="item">
+        <view class="des">户型</view>
+        <view class="val">{{item.Room}}</view>
+      </view>
+      <view class="item">
+        <view class="des">面积</view>
+        <view class="val">{{item.MinSquare}}-{{item.MaxSquare}}m²</view>
+      </view> 
+      <view class="item">
+        <view class="des">价格</view>
+        <view class="val">
+          {{item.NeedType === '求购' ? item.MinPrice / 10000 : item.MinPrice}}-
+          {{item.NeedType === '求购' ? item.MaxPrice / 10000 : item.MaxPrice}}
+          {{item.NeedType === '求购' ? '万元' : '元'}}
+        </view>
+      </view>
+      <view class="item" wx:if="{{item.Remark}}">
+        <view class="des">备注</view>
+        <view class="val">{{item.Remark}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 进阶资料 -->
+  <view class="advance {{ detailShow ? 'slidedown' : ''}}" bindtap="showSlide">
+    <view class="item item-flex">
+      <view class="title">进阶资料</view>
+      <view class="iconfont icon-jiantou2 icon__arrow"></view>
+    </view>
+    <view class="info-adv">
+      <view class="item" v-if="{{custData.Age}}">
+        <view class="des">年龄</view>
+        <view class="val">{{custData.Age}}</view>
+      </view>
+      <view class="item" v-if="{{custData.Marriage}}">
+        <view class="des">婚姻状态</view>
+        <view class="val">{{custData.Marriage}}</view>
+      </view>
+      <view class="item" v-if="{{custData.Children}}">
+        <view class="des">子女</view>
+        <view class="val">{{custData.Children}}</view>
+      </view>
+      <view class="item" v-if="{{custData.Income}}">
+        <view class="des">收入</view>
+        <view class="val">{{custData.Income}}</view>
+      </view>
+      <view class="item" v-if="{{custData.Occupation}}">
+        <view class="des">职业</view>
+        <view class="val">{{custData.Occupation }}</view>
+      </view>
+      <view class="item" v-if="{{custData.Rest}}">
+        <view class="des">休息情况</view>
+        <view class="val">{{custData.Rest }}</view>
+      </view>
+      <view class="item" v-if="{{custData.Assets}}">
+        <view class="des">资产情况</view>
+        <view class="val">{{custData.Assets }}</view>
+      </view>
+      <view class="item" v-if="{{custData.Investment}}">
+        <view class="des">投资情况</view>
+        <view class="val">{{custData.Investment }}</view>
+      </view>
+      <view class="item" v-if="{{custData.Decision}}">
+        <view class="des">决策人</view>
+        <view class="val">{{custData.Decision }}</view>
+      </view>
+      <view class="item" v-if="{{custData.CompanyName}}">
+        <view class="des">单位名称</view>
+        <view class="val">{{custData.CompanyName }}</view>
+      </view>
+      <view class="item" v-if="{{custData.LookHouse}}">
+        <view class="des">看房经历</view>
+        <view class="val">{{custData.LookHouse }}</view>
+      </view>
+      <view class="item" v-if="{{custData.City}}">
+        <view class="des">所在城市</view>
+        <view class="val">{{custData.City }}</view>
+      </view>
+      <view class="item" v-if="{{custData.Address}}">
+        <view class="des">家庭住址</view>
+        <view class="val">{{custData.Address }}</view>
+      </view>
+      <view class="item" v-if="{{custData.Email}}">
+        <view class="des">邮箱地址</view>
+        <view class="val">{{custData.Email }}</view>
+      </view>
+      <view class="item" v-if="{{custData.Source}}">
+        <view class="des">客户来源</view>
+        <view class="val">{{custData.Source }}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 客户跟进 -->
+  <view class="action">
+    <view class="item item-flex">
+      <view class="title">客户跟进</view>
+      <view class="all" bindtap="bindOpenAllFollow">查看全部</view>
+    </view>
+    <view class="follow_content">
+      <view class="follow__list" wx:for="{{followData}}" wx:key="{{index}}">
+        <!-- 头像 -->
+        <view class="follow__head">
+          <image class="follow_head-img" mode="aspectFill" src="{{item.EmpImg}}"></image>
+        </view>
+        <!-- 右侧内容 -->
+        <view class="follow__right">
+          <view class="follow__top">
+            <text class="follow__name">{{item.EmpName}}</text>
+            <text class="follow_time">{{item.FollowDate}}</text>
+          </view>
+          <!-- 文字跟进 -->
+          <view class="follow_text" wx:if="{{item.FollowContent}}">{{item.FollowContent}}</view>
+          <!-- 图片跟进 -->
+          <view class="follow_pic" wx:if="{{item.imageData.length}}">
+            <image 
+              wx:for="{{item.imageData}}" 
+              wx:key="{{index}}"
+              wx:for-item="img"
+              class="follow_pic-img" 
+              mode="widthFix" 
+              src="{{img}}" 
+              data-current="{{img}}"
+              data-item="{{item}}"
+              bindtap="bindPreviewImage"
+            ></image>
+          </view>
+          <!-- 语音跟进 -->
+          <view 
+            class="voice"
+            style="width: {{audio.time < 15 ? '25%' : audio.time / 30 * 80 + '%'}}"
+            wx:if="{{item.audioData.length}}"
+            wx:for="{{item.audioData}}" 
+            wx:for-item="audio"
+            wx:for-index="audioIndex"
+            wx:key="{{audioIndex}}"
+            data-audio="{{audio}}"
+            data-index="{{index}}"
+            data-audio-index="{{audioIndex}}"
+            bindtap="bindPlayAudio"
+          >
+            <text class="voice_yuyin iconfont icon-yuyin"></text>
+            <view class="voice_play {{isPlayAudio === (index + '' + audioIndex) ? 'voice_line--play' : ''}}">
+              <text class="voice_line"></text>
+              <text class="voice_line"></text>
+              <text class="voice_line"></text>
+            </view>
+            <text class="voice_text">{{audio.time}}s</text>
+          </view>
+        </view>
+      </view>
+      <!-- 什么都没有 -->
+      <empty wx:if="{{followLoading && !followData.length}}" desc="没有跟进内容"></empty>
+    </view>
+  </view>
+  <!-- 关联人员 -->
+  <view class="connect">
+    <view class="item item-flex" bindtap="bindOpenAddLink">
+      <view class="title">关联人员</view>
+      <view class="iconfont icon-tianjia g-extend-after"></view>
+    </view>
+    <view class="connect-item" wx:for="{{linkData}}" wx:key="{{index}}">
+      <view class="avatar bg--{{index}}">{{item.LinkType}}</view>
+      <view class="person">
+        <view class="name">{{item.CustName}}</view>
+        <text>电话：{{item.Tel}}</text>
+      </view>
+      <view class="iconfont icon-jianhao g-extend-after" data-index="{{index}}" data-id="{{item.CustLinkID}}" bindtap="bindCloseLink"></view>
+    </view>
+  </view>
+  <view class="footer">录入时间：{{custData.TrustDate}}</view>
+</view>
+
+<i-message id="message" />

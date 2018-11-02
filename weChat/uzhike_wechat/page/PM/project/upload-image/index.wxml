@@ -1,0 +1,45 @@
+<!--pages/project/new-data/index.wxml-->
+<view class='header'></view>
+<view class='data-wrap'>
+  <view class='data__list'>
+    <textarea placeholder='说点什么吧' placeholder-class='placeholder'></textarea>
+  </view>
+ 
+  <view class='data__list m20'>
+    <view class='list__content'>
+      <text class='list__text'>图片类型</text>
+      <picker bindchange='bindDataTypeChange' range='{{DataTypeArray}}' range-key='label'>
+        <view class='list__desc' wx:if="{{params.DataType==''}}">请选择</view>
+        <view class='list__desc' wx:else>{{params.DataType}}</view>
+      </picker>
+      <text class="iconfont icon-jiantou2 list__arrow"></text>
+    </view>
+  </view>
+</view>
+<view class='data-add'>
+  <!-- <view class='add__operate'>
+    <text>图片</text>
+    <text style="color:rgb(191,191,191)" catchtap='DelAllProjectFile'>清除</text>
+  </view> -->
+  <view class='add__imgList'>
+    <view class='imgList'>
+      <view class='imgList__image' wx:for="{{imgCropperArray}}" wx:key="ProjectFileID">
+        <image src='{{item.src}}'></image>
+        <text class="iconfont icon-guanbi guanbi}}" catchtap='DelProjectFile' data-index="{{index}}" data-project-id="{{item.ProjectFileID}}"></text>
+      </view>
+      <view class='add__img' catchtap='bingAddImg'>
+        <text class="iconfont icon-tianjia tianjia}}"></text>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='add__operate add__annex'>
+    <text>附件</text>
+    <text class="iconfont icon-fujian tianjia}}" catchtap='bindAddFile'></text>
+  </view> -->
+</view>
+<view class="footer">
+  <button class="btn-primery" loading="{{loading}}" disabled="{{disabled}}" bindtap="bindSubmit">
+    <text hidden="{{loading}}">提交</text>
+  </button>
+</view>
+<i-message id="message" />

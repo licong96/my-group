@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "管理",
+  "usingComponents": {
+    "i-message": "/components/message/index",
+    "loading": "/components/loading/index"
+  }
+}

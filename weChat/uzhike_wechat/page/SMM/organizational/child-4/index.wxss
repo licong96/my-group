@@ -1,0 +1,5 @@
+@import "../list/index.wxss";
+
+.content {
+  bottom: 0;
+}

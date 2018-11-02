@@ -1,0 +1,361 @@
+
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    类型
+  </label>
+  <div class="col-sm-10 row pd-l">
+    <div class="custom-control custom-radio col-sm-3">
+      <input type="radio" id="Trade1" name="Trade" value="出售" class="custom-control-input" checked>
+      <label class="custom-control-label" for="Trade1">二手房出售</label>
+    </div>
+    <div class="custom-control custom-radio col-sm-3">
+      <input type="radio" id="Trade2" name="Trade" value="出租" class="custom-control-input">
+      <label class="custom-control-label" for="Trade2">房屋出租</label>
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    封面图
+  </label>
+  <div class="col-sm-10 row pd-l">
+    <ul class="up-img" id="PhotoTypeCover">
+    </ul>
+  </div>
+</section>
+<section class="form-group row">
+  <label for="PropertyTitle" class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    房源标题
+  </label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="PropertyTitle" placeholder="请输入标题" autocomplete="off" />
+  </div>
+</section>
+<section class="form-group row">
+  <label for="DistrictID" class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    区域
+  </label>
+  <div class="col-sm-10">
+    <select class="custom-select" id="DistrictID">
+      <option value="" selected>请选择区域</option>
+    </select>
+  </div>
+</section>
+<section class="form-group row">
+  <label for="Address" class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    地址
+  </label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="Address" placeholder="请搜索地址" autocomplete="off" />
+    {{!-- 显示地图搜索内容 --}}
+    <div class="address-search">
+      <ul class="a-box js_address_search">
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- 租房类型 | 出租里才有 -->
+<section class="form-group row js_lease hide">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    租房类型
+  </label>
+  <div class="col-sm-10 row pd-l">
+    <div class="custom-control custom-radio col-sm-3">
+      <input type="radio" id="typeHouse1" name="RentType" value="整租" class="custom-control-input" checked>
+      <label class="custom-control-label" for="typeHouse1">整租</label>
+    </div>
+    <div class="custom-control custom-radio col-sm-3">
+      <input type="radio" id="typeHouse2" name="RentType" value="合租" class="custom-control-input">
+      <label class="custom-control-label" for="typeHouse2">合租</label>
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    建筑结构
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <select class="custom-select" id="CountF">
+        <option value="" selected>请选择几室</option>
+        <option value="1">1室</option>
+        <option value="2">2室</option>
+        <option value="3">3室</option>
+        <option value="4">4室</option>
+        <option value="5">5室</option>
+        <option value="6">6室</option>
+        <option value="7">7室</option>
+        <option value="8">8室</option>
+        <option value="9">9室</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <select class="custom-select" id="CountT">
+        <option value="" selected>请选择几厅</option>
+        <option value="1">1厅</option>
+        <option value="2">2厅</option>
+        <option value="3">3厅</option>
+        <option value="4">4厅</option>
+        <option value="5">5厅</option>
+        <option value="6">6厅</option>
+        <option value="7">7厅</option>
+        <option value="8">8厅</option>
+        <option value="9">9厅</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <select class="custom-select" id="CountW">
+        <option value="" selected>请选择几卫</option>
+        <option value="1">1卫</option>
+        <option value="2">2卫</option>
+        <option value="3">3卫</option>
+        <option value="4">4卫</option>
+        <option value="5">5卫</option>
+        <option value="6">6卫</option>
+        <option value="7">7卫</option>
+        <option value="8">8卫</option>
+        <option value="9">9卫</option>
+      </select>
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    面积
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <input type="text" id="Square" class="form-control input-unit" placeholder="请输入面积" autocomplete="off">
+      <span class="unit">㎡</span>
+    </div>
+  </div>
+</section>
+<!-- 价格 | 出售里才有 -->
+<section class="form-group row js_deal">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    价格
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <input type="text" id="Price" class="form-control input-unit" placeholder="请输入总价" autocomplete="off">
+      <span class="unit">万</span>
+    </div>
+    <div class="col-sm-4">
+      <input type="text" id="PriceUnit" class="form-control input-unit" placeholder="请输入单价" autocomplete="off">
+      <span class="unit">元/㎡</span>
+    </div>
+  </div>
+</section>
+<!-- 租金 | 出租里才有 -->
+<section class="form-group row js_lease hide">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    租金
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <input type="text" id="RentPrice" class="form-control input-unit" placeholder="请输入租价" autocomplete="off">
+      <span class="unit">元/月</span>
+    </div>
+    <div class="col-sm-4">
+      <input type="text" id="RentPriceUnit" class="form-control input-unit" placeholder="请输入租单价" autocomplete="off">
+      <span class="unit">元/㎡</span>
+    </div>
+  </div>
+</section>
+<!-- 物业费 | 出租里才有 -->
+<section class="form-group row js_lease hide">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    物业费
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <input type="text" id="MtgPrice" class="form-control" placeholder="物业费（元/月）">
+    </div>
+  </div>
+</section>
+<!-- 转让费 | 出租里才有 -->
+<section class="form-group row js_lease hide">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    转让费
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <input type="text" id="TransferPrice" class="form-control input-unit" value="0" placeholder="转让费（元/月）">
+      <span class="unit">元</span>
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    楼层
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <select class="custom-select" id="Floor">
+        <option value="" selected>请选择楼层</option>
+        <option value="低层">低层</option>
+        <option value="中层">中层</option>
+        <option value="高层">高层</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <input type="text" id="FloorAll" class="form-control" placeholder="请输入总楼层">
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    类型
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <select class="custom-select" id="PropertyUsage">
+        <option value="" selected>请选择类型</option>
+      </select>
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">
+    <svg class="icon icon-must" aria-hidden="true"><use xlink:href="#icon-bitianbiaoqian"></use></svg>
+    物业类别
+  </label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <input type="text" id="PropertyType" class="form-control" placeholder="请输入物业类别">
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">看房方式</label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <select class="custom-select" id="PropertyLook">
+        <option value="预约">预约</option>
+      </select>
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">装修</label>
+  <div class="col-sm-4">
+    <select class="custom-select" id="Decoration">
+      <option value="" selected>请选择装修</option>
+    </select>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">朝向</label>
+  <div class="col-sm-4">
+    <select class="custom-select" id="Orientation">
+      <option value="" selected>请选择朝向</option>
+    </select>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">建筑年代</label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <input type="text" id="CompletedYear" class="form-control" placeholder="请输入建筑年代">
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">产权性质</label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <select class="custom-select" id="PropertyNature">
+        <option value="" selected>请选择产权性质</option>
+      </select>
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">产权年限</label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <input type="text" id="PropertyYear" class="form-control" placeholder="请输入产权年限">
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">标签</label>
+  <div class="col-sm-10 row" id="PropertyTag">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="tag1">
+      <label class="custom-control-label" for="tag1">标签</label>
+    </div>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">地铁站</label>
+  <div class="col-sm-10 row">
+    <div class="col-sm-4">
+      <select class="custom-select" id="SubwayLine">
+        <option value="" selected>请选择几号线</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <select class="custom-select" id="SubWayStation">
+        <option value="" selected>请选择哪一站</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">核心卖点</label>
+  <div class="col-sm-10 row pd-l">
+    <textarea class="form-control" id="SellingPoint" rows="6" placeholder="请输入卖点"></textarea>
+  </div>
+</section>
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">交通</label>
+  <div class="col-sm-10 row pd-l">
+    <textarea class="form-control" id="Traffic" rows="3" placeholder="请输入交通"></textarea>
+  </div>
+</section>
+
+{{!-- 上传图片 --}}
+<section class="form-group row">
+  <label class="col-sm-2 col-form-label">上传图片</label>
+  <div class="col-sm-10 row">
+    <section class="upload-tab js_upload_tab">
+      <button type="button" class="btn btn-primary">户型图</button>
+      <button type="button" class="btn">室内图</button>
+      <button type="button" class="btn">小区图</button>
+    </section>
+    <section class="form-group js_upload_box">
+      <ul class="up-img" id="PhotoTypeHouse">
+      </ul>
+    </section>
+    <section class="form-group js_upload_box hide">
+      <ul class="up-img" id="PhotoTypeIndoor">
+      </ul>
+    </section>
+    <section class="form-group js_upload_box hide">
+      <ul class="up-img" id="PhotoTypeEstate">
+      </ul>
+    </section>
+  </div>
+</section>
+
+<div class="form-group row">
+  <div class="col-sm-10 submit" id="submit">
+    <button type="submit" class="btn btn-lg ladda-button" data-style="zoom-in">立即发布</button>
+  </div>
+</div>

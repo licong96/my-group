@@ -1,0 +1,35 @@
+.picker-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #333;
+}
+.picker__title {
+  font-size: 30rpx;
+  transition: transform .3s;
+  transform-origin: left center;
+}
+.picker__desc {
+  overflow: hidden;
+  height: 0;
+  font-size: 30rpx;
+  transition: height .3s;
+}
+.picker-wrap.active .picker__title{
+  transform: scale(.8);
+  color: #c1c1c1;
+}
+.picker-wrap.active .picker__desc{
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.title--required {
+  position: relative;
+}
+.title--required::after {
+  content: "*";
+  padding-left: 8rpx;
+  font-size: 40rpx;
+  color: #ff6714;
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "批量编辑",
+  "usingComponents": {
+    "i-message": "/components/message/index"
+  }
+}

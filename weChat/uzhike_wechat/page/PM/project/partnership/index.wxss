@@ -1,0 +1,247 @@
+.search__input {
+  font-size: 24rpx;
+}
+
+page {
+  height: 100%;
+  font-style: normal;
+}
+
+/*  搜索  */
+
+.top {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1004;
+  width: 100%;
+  background-color: #fff;
+}
+
+.top__search {
+  flex: 1;
+  margin: 0 -10rpx;
+}
+
+.bind-setting {
+  position: relative;
+  z-index: 3;
+  margin-left: 10rpx;
+  border: 1rpx solid #e6e6e6;
+  border-radius: 8rpx;
+  width: 120rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+}
+
+.bg0 {
+  background-color: #1671fd;
+}
+
+.bg1 {
+  background-color: #fe495b;
+}
+
+.bg2 {
+  background-color: #ff6714;
+}
+
+.bg3 {
+  background-color: #fccc20;
+}
+
+.bg4 {
+  background-color: #86e39c;
+}
+.bg5 {
+  background-color: #1671fd;
+}
+
+.bg6 {
+  background-color: #fe495b;
+}
+
+.bg7 {
+  background-color: #ff6714;
+}
+
+.bg8 {
+  background-color: #fccc20;
+}
+
+.bg9 {
+  background-color: #86e39c;
+}
+
+/* 筛选 */
+
+.screen {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1005;
+  border-top: 1rpx solid rgb(230, 230, 230);
+  border-bottom: 1rpx solid rgb(230, 230, 230);
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+}
+
+.screen__list {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.screen__text {
+  padding-right: 10rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.picker {
+  width: 190rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: rgb(241, 241, 241);
+  border-radius: 8rpx;
+}
+
+.icon-arrow {
+  display: inline-block;
+  font-size: 24rpx;
+  color: rgb(210, 210, 210);
+  transform: rotate(-90deg);
+}
+
+/* 筛选详细 */
+
+.screen-detail {
+  position: absolute;
+  top: 188rpx;
+  left: 0;
+  z-index: 1001;
+  border-top: 1rpx solid #e6e6e6;
+  width: 100%;
+  height: 600rpx;
+  background-color: #fff;
+}
+
+.screen-detail__item {
+  padding: 10rpx 30rpx 0 30rpx;
+  height: 600rpx;
+}
+
+.screen-detail__list {
+  display: block;
+  padding: 20rpx 0;
+  color: #666;
+  position: relative;
+  background-color: #fff;
+}
+
+.screen-detail__list radio {
+  box-sizing: border-box;
+  background: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.list-wrap {
+  background-color: #fff;
+  padding: 0 23rpx;
+}
+
+.data-list {
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #e6e6e6;
+  padding: 20rpx 0;
+}
+
+.list__img image {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.list__logo {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  font-size: 52rpx;
+  text-align: center;
+  color:#fff;
+  overflow: hidden;
+}
+
+.list__estate {
+  width: 100%;
+  padding-left: 15rpx;
+  position: relative;
+}
+
+.list__developer {
+  color: rgb(1, 1, 1);
+  margin-bottom: 5rpx;
+}
+
+.list__developer text {
+  color: rgb(193, 193, 193);
+  font-size: 24rpx;
+}
+
+.list__address {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list__address text {
+  color: rgb(193, 193, 193);
+}
+
+.icon-more {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 38rpx;
+  color: rgb(210, 210, 210);
+}
+
+.active {
+  color: #ff6714;
+}
+
+.active text {
+  color: #ff6714;
+}
+
+/* radio样式修改 */
+
+/* radio未选中时样式 */
+
+radio .wx-radio-input {
+  border: none;
+  background: none;
+  z-index: -1;
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: none;
+}

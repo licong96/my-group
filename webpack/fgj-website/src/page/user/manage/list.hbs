@@ -1,0 +1,24 @@
+{{#each list}}
+  <a class="windy" href="./manage-house.html?PropertyID={{_propertyid}}">
+    <li class="list">
+      <div>
+        <h5 class="w-title">{{_propertytitle}}</h5>
+        <div class="rainy">
+          {{#if _price}}
+          <span class="cloudy">{{_price}}万</span>
+          {{/if}}
+          {{#if _rentprice}}
+          <span class="cloudy">{{_rentprice}}元/月</span>
+          {{/if}}
+          <span class="cloudy">{{_countf}}室{{_countt}}厅{{_countw}}卫</span>
+          <span class="cloudy">{{_square}}㎡</span>
+        </div>
+      </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">上架</button>
+        <button type="button" class="btn btn-secondary">下架</button>
+        <button type="button" class="btn btn-warning">编辑</button>
+      </div>
+    </li>
+  </a>
+{{/each}}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "预览",
+  "usingComponents": {
+    "i-message": "/components/message/index",
+    "wux-animation-group": "/components/animation-group/index",
+    "wux-backdrop": "/components/backdrop/index",
+    "loading": "/components/loading/index"
+  }
+}

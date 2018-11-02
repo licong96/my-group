@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "申请信息",
+  "usingComponents": {
+    "i-message": "/components/message/index"
+  }
+}

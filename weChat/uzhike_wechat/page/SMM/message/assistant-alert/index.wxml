@@ -1,0 +1,14 @@
+<view class="assistant">
+  <view class="assistant__item" wx:for="{{[1, 2, 3]}}" wx:key="{{index}}">
+    <view class="assistant__left">
+      <image class="assistant__img" mode="aspectFill" src="../../../images/emp-img.jpg"></image>
+    </view>
+    <view class="assistant__right">
+      <view class="assistant__title">客户管理小助手</view>
+      <view class="assistant__text">王女士、张先生等8位客户已有3天没有跟进动态了,赶快联系一下吧！</view>
+      <view class="assistant__date">
+        <text class="assistant__date-text">9月20日 19:45</text>
+      </view>
+    </view>
+  </view>
+</view>

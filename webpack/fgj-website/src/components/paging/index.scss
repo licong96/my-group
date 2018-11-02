@@ -1,0 +1,27 @@
+@import "../../common/scss/mixin";
+
+// 分页
+.pagination {
+  margin-top: 100px;
+  justify-content: center;
+  .page-item {
+    .page-link {
+      &:first-child {
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  }
+  .page-item.disabled.active .page-link {
+    color: #fff;
+    background-color: #ff9800;
+    border-color: #ff9800;
+  }
+  .page-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #787878;
+  }
+}

@@ -1,0 +1,10 @@
+<view>
+  <textarea placeholder='说点什么吧' placeholder-style='clor:rgb(193.193.193)' bindinput="bindMessageChange"></textarea>
+</view>
+
+<view class="footer">
+  <button class="btn-primery" loading="{{loading}}" disabled="{{disabled}}" bindtap="bindSubmit">
+    <text hidden="{{loading}}">提交申请</text>
+  </button>
+</view>
+<i-message id="message" />

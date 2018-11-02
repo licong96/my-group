@@ -1,0 +1,54 @@
+<ul>
+  {{#each list}}
+  <a class="no-decoration" href="./detail.html?PropertyID={{_propertyid}}" target="_blank">
+    <li class="list">
+      <div class="img-wrap">
+        <img src="{{_pagepic}}" alt="" class="img">
+      </div>
+      <div class="con-wrap">
+        <h3 class="title">
+          {{_estate._propertytitle}} {{_countf}}室{{_countt}}厅{{_countw}}卫
+        </h3>
+        <p class="location">
+          <svg class="icon" aria-hidden="true"><use xlink:href="#icon-weizhi"></use></svg>
+          <span class="desc">{{_address}}</span>
+        </p>
+        <div class="house-info">
+          <svg class="icon" aria-hidden="true"><use xlink:href="#icon-fangzi01-copy"></use></svg>
+          {{#if _orientation}}
+          <span class="desc">{{_orientation}}</span>
+          {{/if}}
+          <span class="desc">{{_propertyusage}}</span>
+          <span class="desc">面积：{{_square}}㎡</span>
+          <span class="desc">{{_decoration}}</span>
+        </div>
+        <div class="tag-wrap">
+          {{#each tag}}
+            {{#if @this}}
+            <span class="tag tag-{{@index}}">{{@this}}</span>
+            {{/if}}
+          {{/each}}
+        </div>
+        <div class="user">
+          <span class="desc">{{_custname}}</span>
+          <span class="desc">{{_estate._districtname}}</span>
+          <span class="desc">{{_moddate}}</span>
+        </div>
+      </div>
+      {{!-- 出售 --}}
+      {{#if _price}}
+      <div class="price-wrap">
+        <p class="price">{{_price}}万</p>
+        <p class="area">{{_priceunit}}元/㎡</p>
+      </div>
+      {{/if}}
+      {{!-- 出租 --}}
+      {{#if _rentprice}}
+      <div class="price-wrap">
+        <p class="price">{{_rentprice}}元/月</p>
+      </div>
+      {{/if}}
+    </li>
+  </a>
+  {{/each}}
+</ul>

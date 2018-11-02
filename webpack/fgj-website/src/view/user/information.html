@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <%= require('html-loader!components/header-meta/index.html') %>
+    <title>
+      <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+<body>
+  <!-- 头部 -->
+  <%= require('html-loader!components/header-nav/index.html') %>
+  <!-- <input type="password" class="input-puppet" placeholder="这个隐藏的input为的是去掉浏览器默认填充" /> -->
+  <section class="container main">
+    <div class="row">
+      <!-- 左导航 -->
+      <div class="nav nav-tabs flex-column col-md-3" id="user-nav">
+          <%= require('html-loader!components/loader-default/index.html') %>
+      </div>
+      <!-- 右内容 -->
+      <div class="col-md-9">
+        <div class="content">
+          <div class="title">
+            <button type="button" class="btn rounded-0">基本资料</button>
+          </div>
+          <section class="info">
+            <ul class="up-info-box js_up_user_info">
+              <%= require('html-loader!components/loader-default/index.html') %>
+            </ul>
+            <div class="text-right info-btn">
+              <button class="btn btn-lg btn-primary btn-outline-primary hide" id="modifiedData" type="button">修改资料</button>
+              <button class="btn btn-lg btn-outline-primary hide" id="closeSaveData" type="button">取消修改</button>
+              <button class="btn btn-lg btn-primary btn-outline-primary ladda-button hide" id="saveData" type="button" data-style="zoom-in">保存资料</button>
+            </div>
+            <ul class="js_up_password hide">
+              <li class="dropdown-divider"></li>
+              <li class="list">
+                <span class="spring">密码</span>
+                <span class="summer">******</span>
+                <button class="btn btn-lg btn-primary btn-outline-primary ml-auto" type="button" data-toggle="modal" data-target="#modalUpPassword">修改密码</button>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 修改密码容器 -->
+  <section class="up-password-box js_up_password_box"></section>
+
+  <!-- 图片裁切容器 -->
+  <section class="cropper-wrap js_cropper_wrap">
+    <div class="cropper-box">
+      <div class="flex-1 js_image_wrap">
+        <img src="" class="cropper-img" id="image" alt="">
+      </div>
+      <div class="operation">
+        <button class="btn btn-lg" id="cancelCropBtn">取消</button>
+        <button class="btn btn-lg ladda-button" id="confirmCropBtn" data-style="zoom-in">裁切</button>
+      </div>
+    </div>
+  </section>
+  <!-- 底部 -->
+  <%= require('html-loader!components/footer/index.html') %>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<view class='warn'>编辑字段属性</view>
+<view class='list around' style='height:100rpx'>
+  <text>是否必填</text>
+  <view class="body-view">
+    <switch checked bindchange="switch1Change" />
+  </view>
+</view>
+<view class='warn'>编辑字段属性</view>
+
+<view class='list'>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio" wx:for="{{items}}">
+      <radio color="#ff6714" value="{{item.name}}" checked="{{item.checked}}" />
+      <view>
+       <view class='type'>{{item.value}}</view>
+       <view class='label'>{{item.label}}</view>
+      </view>
+    </label>
+  </radio-group>
+</view>
+
+<view class="footer">
+  <button class="btn-primery" bindtap="bindSubmit">
+    <text>下一步</text>
+  </button>
+</view>
+<i-message id="message" />

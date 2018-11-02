@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <%= require('html-loader!components/header-meta/index.html') %>
+    <title>
+      <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+<body>
+  <!-- 头部导航 -->
+  <%= require('html-loader!components/header-nav/index.html') %>
+  
+  <input type="password" class="input-puppet" />
+  <section class="container main" id="main">
+    <%= require('html-loader!components/loader-default/index.html') %>
+  </section>
+  
+  <!-- 图片裁切容器 -->
+  <section class="cropper-wrap js_cropper_wrap">
+    <div class="cropper-box">
+      <div class="flex-1 js_image_wrap">
+        <img src="" class="cropper-img" id="image" alt="">
+      </div>
+      <div class="operation">
+        <button class="btn btn-lg active" id="cancelCropBtn">取消</button>
+        <button class="btn btn-lg ladda-button" id="confirmCropBtn">裁切</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 地图容器 -->
+  <section class="map-wrap js_map_wrap"></section>
+
+  <%= require('html-loader!components/footer/index.html') %>
+  <script src="http://api.map.baidu.com/api?v=2.0&ak=NxlUGKjED1ua1mUGLc1xRCLQ"></script>
+</body>
+
+</html>

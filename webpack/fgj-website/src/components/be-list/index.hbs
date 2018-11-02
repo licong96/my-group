@@ -1,0 +1,15 @@
+{{#each list}}
+  <a class="link" href="{{link}}" target="_blank">
+    <li class="list">
+      <img class="img" src="{{_touser._headpic}}"
+        alt="">
+      <div class="text">
+        <p class="user">
+          {{_touser._username}}
+          <span class="time">{{_regdate}}</span>
+        </p>
+        <p class="desc">{{_content}}</p>
+      </div>
+    </li>
+  </a>
+{{/each}}

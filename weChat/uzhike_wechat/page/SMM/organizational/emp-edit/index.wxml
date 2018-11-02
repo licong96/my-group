@@ -1,0 +1,112 @@
+<view class="content">
+  <scroll-view scroll-y style="height: 100%;">
+    <view class="list-wrap">
+      <view class="list person__pic">
+        <text class="list__title">设置头像</text>
+        <view class="list__content person__pic-content" bindtap="uploadPic">
+          <image class="person__img" mode="aspectFill" src="{{EmpImg}}"></image>
+        </view>
+      </view>
+      <view class="list">
+        <text class="list__title">部门</text>
+        <view class="list__content" bindtap="bindOpenSelectDept">
+           <text class="list__content-text">{{params.DeptName}}</text> 
+        </view>
+        <text class="iconfont icon-jiantou2 list__arrow"></text>
+      </view>
+      <view class="list">
+        <text class="list__title">职务</text>
+        <view class="list__content" data-type="position" bindtap="bindOpenSelectPage">
+          <text class="list__content-text">{{params.PositionName}}</text>
+        </view>
+        <text class="iconfont icon-jiantou2 list__arrow"></text>
+      </view>
+      <view class="list">
+        <text class="list__title">用户组</text>
+        <view class="list__content" data-type="group" bindtap="bindOpenSelectPage">
+          <text class="list__content-text">{{params.GroupName}}</text>
+        </view>
+        <text class="iconfont icon-jiantou2 list__arrow"></text>
+      </view>
+      <view class="list">
+        <text class="list__title">姓名</text>
+        <view class="list__content">
+          <input 
+            class="list__input" 
+            type="text" 
+            value="{{params.EmpName}}" 
+            data-type="EmpName" 
+            bindblur="changeInput" 
+            placeholder="请填写姓名" />
+        </view>
+      </view>
+      <view class="list">
+        <text class="list__title">性别</text>
+        <view class="list__content">
+          <picker 
+            mode="selector" 
+            bindchange="bindPickerChange" 
+            value="{{pickerValueSexIndex}}" 
+            range="{{pickerValueSex}}" 
+            range-key="label"
+          >
+            <text class="list__picker">{{pickerValueSex[pickerValueSexIndex].label}}</text>
+          </picker>
+        </view>
+        <text class="iconfont icon-jiantou2 list__arrow"></text>
+      </view>
+      <view class="list">
+        <text class="list__title">生日</text>
+        <view class="list__content">
+          <picker 
+            mode="date" 
+            value="{{params.Birthday}}" 
+            start="1950-01-01" 
+            end="{{nowDate}}" 
+            data-type="Birthday" 
+            bindchange="bindDateChange"
+          >
+            <text class="list__picker">{{params.Birthday}}</text>
+          </picker>
+        </view>
+      </view>
+      <view class="list">
+        <text class="list__title">加入时间</text>
+        <view class="list__content">
+          <picker 
+            mode="date" 
+            value="{{params.JoinDate}}" 
+            start="2000-01-01" 
+            end="{{nowDate}}" 
+            data-type="JoinDate" 
+            bindchange="bindDateChange"
+          >
+            <text class="list__picker">{{params.JoinDate}}</text>
+          </picker>
+        </view>
+      </view>
+      <view class="list list-auto">
+        <text class="list__title">备注</text>
+        <view class="list__content">
+          <input 
+            class="list__input" 
+            type="text" 
+            value="{{params.Remark}}" 
+            data-type="Remark" 
+            bindblur="changeInput" 
+            placeholder="请填写备注" />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="footer">
+  <button class="btn-primery" loading="{{loading}}" disabled="{{disabled}}" bindtap="bindSubmit">
+    <text hidden="{{loading}}">完成</text>
+  </button>
+</view>
+
+<i-message id="message" />
+
+<select-dept id="selectDept" bindconfirm="bindSelectConfirm"></select-dept>

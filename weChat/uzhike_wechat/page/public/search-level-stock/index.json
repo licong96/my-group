@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "选择房号",
+  "usingComponents": {
+    "i-message": "/components/message/index",
+    "search": "/components/search/index",
+    "empty": "/components/empty/index",
+    "loading": "/components/loading/index"
+  }
+}

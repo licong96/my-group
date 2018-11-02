@@ -1,0 +1,66 @@
+<!-- 第四步 -->
+<view class="content">
+  <view class="sub-title">客户信息</view>
+  <view class="list-wrap">
+    <view class="list">
+      <view class="list__content">
+        <lc-picker 
+          label="付款方式" 
+          type="PayMode" 
+          range="{{pickerPayMode}}" 
+          rangeIndex="{{pickerPayModeIndex}}"
+          required="true" 
+          bindpickerChange="bindPickerChange" 
+        />
+      </view>
+      <text class="iconfont icon-arrow_left list__arrow"></text>
+    </view>
+    <view class="list">
+      <view class="list__content">
+        <field-input 
+          type="number"
+          label="成交价(元)" 
+          value="{{params.FinalPrice}}" 
+          isField="{{params.FinalPrice}}" 
+          data-type="FinalPrice" 
+          required="true"
+          bind:value="bindFieldChange" 
+        />
+      </view>
+    </view>
+    <view class="list">
+      <view class="list__content">
+        <field-input 
+          type="number"
+          label="客户佣金(元)" 
+          value="{{params.CustCommission}}" 
+          isField="{{params.CustCommission}}" 
+          data-type="CustCommission" 
+          required="true"
+          bind:value="bindFieldChange" 
+        />
+      </view>
+    </view>
+    <view class="list">
+      <view class="list__content">
+        <field-input 
+          type="number"
+          label="卖方佣金(元)" 
+          value="{{params.OwnerCommission}}" 
+          isField="{{params.OwnerCommission}}" 
+          data-type="OwnerCommission" 
+          required="true"
+          bind:value="bindFieldChange" 
+        />
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <button class="btn-primery" loading="{{loading}}" bindtap="bindSubmit">
+    <text hidden="{{loading}}">完成</text>
+  </button>
+</view>
+ 
+<i-message id="message" />

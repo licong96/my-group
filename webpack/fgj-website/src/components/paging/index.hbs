@@ -1,0 +1,10 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {{#each list}}
+      <li class="page-item {{active}} {{disabled}}" data-value="{{value}}">
+        <a class="page-link" href="#" tabindex="-1">{{text}}</a>
+      </li>
+    {{/each}}
+    <span class="page-count">{{page}}/{{pageCount}}</span>
+  </ul>
+</nav>

@@ -1,0 +1,21 @@
+@import './mixin.scss';
+
+// 重置bootstrap样式
+.form-control {
+  border: 1px solid #ced4da;
+  border-bottom: none;
+  border-radius: .25rem;
+  padding: .5rem .75rem;
+}
+.custom-control-label {
+  line-height: 1.5;
+}
+.btn.btn-default {
+  color: #fff;
+  background-color: $color-primary;
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: #e88b00;
+  }
+}

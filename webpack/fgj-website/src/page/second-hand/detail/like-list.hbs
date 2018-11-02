@@ -1,0 +1,19 @@
+
+{{!-- 猜你喜欢 --}}
+{{#each list}}
+  <div class="col-lg-3">
+    <a class="no-decoration" target="_blank" href="./detail.html?PropertyID={{_propertyid}}">
+      <div class="list">
+        <img class="img" src="{{path}}" alt="">
+        {{!-- PropertyTitle --}}
+        <p class="title text-truncate">{{_estate._estatename}}</p>
+        <div class="text">
+          {{#if _price}}
+          <span class="price">{{_price}}万</span>
+          {{/if}}
+          <span> {{_countf}}室{{_countt}}厅{{_countw}}卫 {{_square}}㎡</span>
+        </div>
+      </div>
+    </a>
+  </div>
+{{/each}}

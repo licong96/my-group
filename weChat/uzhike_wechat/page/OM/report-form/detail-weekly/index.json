@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "i-message": "/components/message/index",
+    "loading": "/components/loading/index"
+  }
+}

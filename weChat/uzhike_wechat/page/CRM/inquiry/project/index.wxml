@@ -1,0 +1,82 @@
+<!-- 切换 -->
+<view class="tab">
+  <text class="tab__item {{tabCut === '0' ? 'active' : ''}}" data-index="0" bindtap="bindTabCut">报备项目</text>
+  <text class="tab__item {{tabCut === '1' ? 'active' : ''}}" data-index="1" bindtap="bindTabCut">报备列表</text>
+  <text class="tab__line" style="transform: translate3d({{tabCut * 100}}%, 0, 0)"></text>
+</view>
+
+<!-- 报备项目 -->
+<view class="tab-page" hidden="{{tabCut !== '0'}}">
+  <search height="110rpx" bindquery="bindProjectQuery" placeholder="搜索你想找的项目"></search>
+  <!-- 项目列表 -->
+  <view class="project-wrap">
+    <scroll-view scroll-y style="height: 100%;" bindscrolltolower="projectListLower">
+      <view class="project-list">
+        <view class="project__item" wx:for="{{projectData}}" wx:key="{{index}}">
+          <view class="project__content">
+            <view class="project__top">
+              <image  class="project__bg-img" src="{{item.CoverImgUrlPath}}"></image>
+              <text class="project__name text-ellipsis">{{item.ProjectName}}</text>
+              <text class="project__btn" data-item="{{item}}" bindtap="bindSelectProject">报备</text>
+            </view>
+            <view class="project__info">
+              <view class="project__left">
+                <text class="project__info-title">已报</text>
+                <text class="project__desc">102人</text>
+              </view>
+              <view class="project__right">
+                <text class="project__info-title">最近到期时间</text>
+                <text class="project__desc">23:23:10</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <empty wx:if="{{isLoading1 && !projectData.length}}"></empty>
+    </scroll-view>
+  </view>
+</view>
+
+<!-- 报备列表 -->
+<view class="tab-page" hidden="{{tabCut !== '1'}}">
+  <search height="110rpx" bindquery="bindInquiryQuery" zIndex="2002" placeholder="搜索你想找的项目"></search>
+  <!-- 列表筛选 -->
+  <lc-down-selection screenData="{{downScreenData}}" bindchange="bindDownSelection"></lc-down-selection>
+  <!-- 列表 -->
+  <view class="inquiry-wrap">
+    <scroll-view scroll-y style="height: 100%;" bindscrolltolower="inquiryListLower">
+      <view class="inquiry-list">
+        <view class="inquiry__item" wx:for="{{inquiryData}}" wx:key="{{index}}">
+          <view class="inquiry__top">
+            <view class="inquiry__top-l">
+              <text class="inquiry__name">{{item.CustName}}</text>
+              <text class="inquiry__tel">{{item.CustTel}}</text>
+              <view class="inquiry__project">{{item.ProjectName}}</view>
+            </view>
+            <view class="inquiry__top-r" data-item="{{item}}" bindtap="bindContinueInquiry">
+              <text class="inquiry__btn">续报</text>
+            </view>
+          </view>
+          <view class="inquiry__text">
+            <view class="inquiry__row">
+              <view class="inquiry__title">报备时间：</view>
+              <view class="inquiry__time">{{item.DeclareDate}}</view>
+            </view>
+            <view class="inquiry__row">
+              <view class="inquiry__title">过期时间：</view>
+              <view class="inquiry__time">{{item.ExpireDate}}</view>
+              <view class="inquiry__tag" wx:if="{{item.expire}}">即将到期</view>
+            </view>
+            <view class="inquiry__row">
+              <view class="inquiry__title">到访时间：</view>
+              <view class="inquiry__time">2018/10/16 10:00:00</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <empty wx:if="{{isLoading2 && !inquiryData.length}}"></empty>
+    </scroll-view>
+  </view>
+</view>
+
+<i-message id="message" />

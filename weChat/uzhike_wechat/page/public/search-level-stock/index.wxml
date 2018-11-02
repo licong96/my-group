@@ -1,0 +1,16 @@
+<search height="110rpx" bindquery="bindQuery" placeholder="搜索销控"></search>
+<view class="select" hidden="{{!listData.length}}">
+  <scroll-view class="scroll-box" scroll-y style="height: 100%;">
+    <view class="select-list" wx:for="{{listData}}" wx:key="{{index}}" data-item="{{item}}" bindtap="bindClick">
+      <text class="select-list__dep">{{item.bDictName}}</text>
+      <text class="select-list__emp">{{item.uDictName}}单元</text>
+      <text class="select-list__emp">{{item.fDictName}}F</text>
+      <text class="select-list__emp">{{item.rDictName}}</text>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="hint" wx:if="{{onceHint}}">需要搜索关键字</view>
+
+<loading class="loading" hidden="{{loading}}" text="搜索中..." type="static" />
+<empty wx:if="{{loading && !listData.length && !onceHint}}" />
