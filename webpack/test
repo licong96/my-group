@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- width=750 至关重要 -->
+    <meta name="viewport" content="width=750, user-scalable=no" />
+    <title>canvas H5</title>
+</head>
+
+<body>
+
+    <section class="main">
+        <!-- 场景 -->
+        <canvas class="container" id="container" width="750" height="1260"></canvas>
+        <div class="collection" style="display:none"></div>
+        <!-- 动画 -->
+        <div class="gif">
+            <div class="animation"></div>
+        </div>
+        <!-- 长按 -->
+        <div class="down-btn" id="downBtn"></div>
+        
+    </section>
+
+    <script src="http://source.vipabc.com/Ext/js/lib/jquery-1.11.1.min.js"></script>
+</body>
+
+</html>
